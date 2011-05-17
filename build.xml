@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ui-libs-demo" basedir="." default="help">
+	<!-- 支持的数据库：mysql,mssql,oracle -->
+	<property name="db" value="mysql" />
+	<property name="src.dir" value="." />
+	<property name="build.dir" value="./build" />
+	<property name="resources.dir" value="./resources" />
+	<property name="force" value="true" />
+	<property name="fixlastline" value="true" />
+	<property name="encoding" value="UTF-8" />
+
+	<target name="help">
+		<echo message="run ant build"/>
+	</target>
+	<!-- 
+		?: &quot;
+	-->
+	<target name="build">
+		<replace dir="./highcharts/2.1.4/examples" encoding="utf-8">
+			<include name="**/*.htm"/>
+			<replacefilter token="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2" 
+				value="../../../../ui-libs/jquery/1.4.2"/>
+			<replacefilter token="../js/highcharts.js" 
+				value="../../../../ui-libs/highcharts/2.1.4/highcharts.min.js"/>
+			<replacefilter token="../js/modules/exporting.js" 
+				value="../../../../ui-libs/highcharts/2.1.4/modules/exporting.min.js"/>
+			<replacefilter token="../js/themes/gray.js" 
+				value="../../../../ui-libs/highcharts/2.1.4/themes/gray.js"/>
+			
+			<replacefilter token="http://www.highcharts.com/highslide/highslide-full.min.js" 
+				value="../../../../ui-libs/hignslide/4.1.8/highslide.js"/>
+			<replacefilter token="http://www.highcharts.com/highslide/highslide.config.js" 
+				value="../../../../ui-libs/hignslide/4.1.8/highslide.config.js"/>
+			<replacefilter token="http://www.highcharts.com/highslide/highslide.css" 
+				value="../../../../ui-libs/hignslide/4.1.8/highslide.css"/>
+		</replace>
+	</target>
+</project>
