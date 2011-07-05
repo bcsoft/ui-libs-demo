@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<title>Jcrop Manual - Deep Liquid</title>
+		<link rel="stylesheet" type="text/css" href="/css/dl/global.css" />
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wiki/skins/common/shared.css?275";
+			@import "/wiki/skins/flow/main.css?275";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wiki/skins/common/commonPrint.css?275" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wiki/skins/flow/IE50Fixes.css?275";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wiki/skins/flow/IE55Fixes.css?275";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wiki/skins/flow/IE60Fixes.css?275";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wiki/skins/flow/IE70Fixes.css?275";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wiki/skins/common/IEFixes.js?275"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script>
+var skin="flow",
+stylepath="/wiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/content/$1.html",
+wgScriptPath="/wiki",
+wgScriptExtension=".php",
+wgScript="/wiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://deepliquid.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="Jcrop_Manual",
+wgTitle="Jcrop Manual",
+wgAction="view",
+wgArticleId=21,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=274,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Deep Liquid", "5": "Deep Liquid talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "deep_liquid": 4, "deep_liquid_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Deep Liquid",
+wgCategories=["Jcrop"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script>                
+		<script type="text/javascript" src="http://basil.tapmodo.com/dl-cache/mwiki/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+<script src="http://basil.tapmodo.com/dl-cache/mwiki/ajax.js?275"></script>
+		<script type="text/javascript" src="/wiki/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=flow"><!-- site js --></script>
+	</head>
+<body class="mediawiki  ltr ns-0 ns-subject page-Jcrop_Manual">
+
+ <div id="pholder">
+ <div id="pbox">
+
+<div class="headbar">
+<div id="headlinks">
+	<a href="/blog/">Blog</a> &bull;
+	<a href="/projects/">Projects</a> &bull;
+	<a href="/gallery/">Gallery</a> &bull;
+	<a href="/contact/">Contact</a>
+</div>
+<a href="/"><img src="/css/dl/dl_title.png" /></a>
+</div>
+		<!-- {{{ --><div id="sidemenu">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+<!-- {{{ -->
+		<div class="menu" id='p-navigation'>
+		<h2>Navigation</h2>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Projects"><a href="/content/Deep_Liquid:Projects.html">Projects</a></li>
+				<li id="n-jQuery"><a href="/content/Category:JQuery.html">jQuery</a></li>
+				<li id="n-Contact"><a href="/content/Contact.html">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class="menu" id='p-jQuery_Plugins'>
+		<h2>jQuery Plugins</h2>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Jcrop"><a href="/content/Jcrop.html">Jcrop</a></li>
+				<li id="n-Appendo"><a href="/content/Appendo.html">Appendo</a></li>
+				<li id="n-BlobList"><a href="/content/BlobList.html">BlobList</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- }}} -->
+	<!-- {{{ --><div id="p-search" class="menu">
+		<h2><label for="searchInput">Search</label></h2>
+		<div id="searchBody" class="pBody">
+			<form action="/content/Special:Search.html" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" title="Search Deep Liquid [f]" accesskey="f" value="" size="15" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div><!-- }}} -->
+	<!-- {{{ --><div class="menu" id="p-tb">
+		<h2>Toolbox</h2>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/content/Special:WhatLinksHere/Jcrop_Manual.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/content/Special:RecentChangesLinked/Jcrop_Manual.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="/content/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="/wiki/index.php?title=Jcrop_Manual&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="/wiki/index.php?title=Jcrop_Manual&amp;oldid=274" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div><!-- }}} -->
+<!-- language portlets {{{ --><!-- }}} -->
+	<!-- {{{ --><div id="p-cactions" class="menu">
+		<h2>Views</h2>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="/content/Jcrop_Manual.html" title="View the content page [c]" accesskey="c">Page</a></li>
+					 <li id="ca-talk" class="new"><a href="/wiki/index.php?title=Talk:Jcrop_Manual&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-viewsource"><a href="/wiki/index.php?title=Jcrop_Manual&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+					 <li id="ca-history"><a href="/wiki/index.php?title=Jcrop_Manual&amp;action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div><!-- }}} -->
+	<!-- {{{ --><div class="menu" id="p-personal">
+		<h2>Personal tools</h2>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Jcrop_Manual" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div><!-- }}} -->
+
+	<div class="menu">
+
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-3284749471802515";
+	/* 120x90, created 1/13/10 */
+	google_ad_slot = "8412596593";
+	google_ad_width = 120;
+	google_ad_height = 90;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	
+	</div>
+
+		</div><!-- end of the left (by default at least) column }}} -->
+
+	<div id="pbody">
+		<a name="top" id="top"></a>
+		<h1 class="firstHeading">Jcrop Manual</h1>
+		<div id="bodyContent">
+									<!-- start content -->
+			<h1> <span class="mw-headline" id="Jcrop_.C2.BB_Manual"> <b>Jcrop</b> &raquo; Manual </span></h1>
+<p><a href="http://deepliquid.com/content/Jcrop.html" class="external text" rel="nofollow"><img src="http://deepliquid.com/img/banner/jcrop.png" alt="jcrop.png" /></a><br />
+<small class="banner_links"><a href="/content/Jcrop.html" title="Jcrop">Jcrop Home</a> &bull; <a href="/content/Jcrop_Download.html" title="Jcrop Download">Download</a> &bull; <strong class="selflink">Manual</strong> &bull; <a href="/content/Jcrop_Examples.html" title="Jcrop Examples" class="mw-redirect">Examples</a></small>
+</p><p><big><b>This document provides a roadmap for <a href="/content/Jcrop.html" title="Jcrop">Jcrop</a> implementation.</b></big>
+</p>
+<table>
+<tr>
+<td>
+<ul><li> <a href="#Introduction">Introduction</a>
+</li><li> <a href="#Getting_Started">Getting Started</a>
+</li><li> <a href="#Invocation">Invocation</a>
+</li></ul>
+</td><td>
+<ul><li> <a href="#Event_Handlers">Event Handlers</a>
+</li><li> <a href="#Setting_Options">Setting Options</a>
+</li><li> <b><a href="#Further_Reading">Further Reading</a></b>
+</li></ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Introduction"> Introduction </span></h2>
+<p><big>Jcrop is a powerful image cropping engine for jQuery.</big>
+</p><p>It's been designed so developers can easily integrate an advanced image cropping functionality directly into any web-based application without sacrificing power and flexibility (or the weeks of coding, testing and debugging). Jcrop also features clean, well-organized code that works well across most modern web browsers.
+</p><p>Here you'll find the documentation for Jcrop itself. This guide assumes that you have a basic knowledge of HTML and including files into a web page. At the end of the article, there are links to more advanced concepts and implementation techniques.
+</p>
+<h2> <span class="mw-headline" id="Getting_Started"> Getting Started </span></h2>
+<ul><li> <a href="/content/Jcrop_Download.html" title="Jcrop Download">Download the current version of Jcrop</a>
+</li><li> Place the files on your web server so you can request them from your page
+</li><li> You also must have <a href="http://jquery.com/" class="external text" rel="nofollow">jQuery</a> installed and included!
+</li></ul>
+<p><b>In the page &lt;head&gt; you'll need to load the requisite files.</b>
+That includes:
+</p>
+<ul><li> jQuery library
+</li><li> Jcrop Javascript
+</li><li> Jcrop CSS stylesheet
+</li></ul>
+<p><b>It should look something like this:</b>
+</p>
+<pre>&lt;script src="js/jquery.pack.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.Jcrop.pack.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" /&gt;
+</pre>
+<p><b>Please note:</b> These are only example paths, you probably <i>will</i> need to adjust them when you actually use them, to match the location of the files on your server. Jcrop will not function properly if you don't.
+</p>
+<h2> <span class="mw-headline" id="Invocation"> Invocation </span></h2>
+<p>Let's suppose we have this image our markup:
+</p>
+<pre>&lt;img src="flowers.jpg" id="cropbox" /&gt;
+</pre>
+<p><b>To convert this into a Jcrop widget, insert the following script:</b>
+</p>
+<pre>&lt;script language="Javascript"&gt;
+    jQuery(function() {
+        jQuery('#cropbox').Jcrop();
+    });
+&lt;/script&gt;
+</pre>
+<p><b>Jcrop's default behavior is activated.</b> Since there are no event handlers attached, it won't do anything cool, but you can see how easy it is to implement Jcrop into your page.
+</p><p><b><a href="http://deepliquid.com/projects/Jcrop/demos/tutorial1.html" class="external text" rel="nofollow">See the Jcrop "hello world" example</a></b>
+</p>
+<h2> <span class="mw-headline" id="Event_Handlers"> Event Handlers </span></h2>
+<p><b>Jcrop's two primary event handlers are <i>onChange</i> and <i>onSelect</i>.</b>
+</p>
+<table class="optlist">
+<tr>
+<th> onSelect
+</th><td> <i>callback</i>
+</td><td> Called when selection is completed
+</td></tr>
+<tr>
+<th> onChange
+</th><td> <i>callback</i>
+</td><td> Called when the selection is moving
+</td></tr></table>
+<p><b>Define an event handler function:</b>
+</p>
+<pre>&lt;script language="Javascript"&gt;
+
+  function showCoords(c)
+  {
+      // variables can be accessed here as
+      // c.x, c.y, c.x2, c.y2, c.w, c.h
+  };
+
+&lt;/script&gt;
+</pre>
+<p><b>Attach event handlers like this:</b>
+</p>
+<pre>&lt;script language="Javascript"&gt;
+
+    jQuery(function() {
+        jQuery('#cropbox').Jcrop({
+            onSelect: showCoords,
+            onChange: showCoords
+        });
+    });
+
+&lt;/script&gt;
+</pre>
+<p>This is a conventional jQuery syntax. Note that the last property does not have a comma following (also applies if there is only one property specified). Also be sure to leave off parenthesis on callback functions (you're referring to the named function, not calling it).
+</p><p><b><a href="http://deepliquid.com/projects/Jcrop/demos/tutorial2.html" class="external text" rel="nofollow">See the simple event handler demo</a></b>
+</p>
+<h2> <span class="mw-headline" id="Setting_Options"> Setting Options </span></h2>
+<p>Jcrop options allow you to alter appearance and behavior.
+</p>
+<table class="optlist">
+<tr>
+<th> Option Name
+</th><th> Value Type
+</th><th> Description
+</th><th> Default
+</th></tr>
+<tr>
+<td> <b>aspectRatio</b>
+</td><td> <i>decimal</i>
+</td><td> Aspect ratio of w/h (e.g. 1 for square)
+</td><td> <i>n/a</i>
+</td></tr>
+<tr>
+<td> <b>minSize</b>
+</td><td> <i>array [ w, h ]</i>
+</td><td> Minimum width/height, use 0 for unbounded dimension
+</td><td> <i>n/a</i>
+</td></tr>
+<tr>
+<td> <b>maxSize</b>
+</td><td> <i>array [ w, h ]</i>
+</td><td> Maximum width/height, use 0 for unbounded dimension
+</td><td> <i>n/a</i>
+</td></tr>
+<tr>
+<td> <b>setSelect</b>
+</td><td> <i>array</i> [ x, y, x2, y2 ]
+</td><td> Set an initial selection area
+</td><td> <i>n/a</i>
+</td></tr>
+<tr>
+<td> <b>bgColor</b>
+</td><td> <i>color value</i>
+</td><td> Set color of background container
+</td><td> 'black'
+</td></tr>
+<tr>
+<td> <b>bgOpacity</b>
+</td><td> <i>decimal</i> 0 - 1
+</td><td> Opacity of outer image when cropping
+</td><td> .6
+</td></tr></table>
+<p>Set these options in the same way as event handlers.
+</p><p><b>Here's an example:</b>
+</p>
+<pre>&lt;script language="Javascript"&gt;
+
+    jQuery(function() {
+        jQuery('#cropbox').Jcrop({
+            onSelect:    showCoords,
+            bgColor:     'black',
+            bgOpacity:   .4,
+            setSelect:   [ 100, 100, 50, 50 ],
+            aspectRatio: 16 / 9
+        });
+    });
+
+&lt;/script&gt;
+</pre>
+<p><b>Note a few things about the format of the options object:</b>
+</p>
+<ul><li> Text values must be quoted (e.g. 'red', '#ccc', 'rgb(10,10,10)')
+</li><li> Numeric values, including decimals, should not be quoted.
+</li><li> <i>setSelect</i> takes an array, here indicated as an array literal
+</li><li> <i>aspectRatio</i> may be easiest to set by dividing width/height
+</li><li> The last option is not followed by a comma
+</li></ul>
+<h2> <span class="mw-headline" id="Further_Reading"> Further Reading </span></h2>
+<ul><li> <a href="/content/Jcrop_Implementation_Theory.html" title="Jcrop Implementation Theory">Completing the Crop</a> - implementing the server-side
+</li><li> <a href="/content/Jcrop_API.html" title="Jcrop API">API Documentation</a> - advanced functionality
+</li><li> <a href="/content/Jcrop_Sizing_Issues.html" title="Jcrop Sizing Issues">Sizing Issues</a> - working with large images
+</li><li> <a href="/content/Jcrop_Skinning.html" title="Jcrop Skinning">Changing Appearance</a> - skinning the look and feel
+</li><li> <a href="/content/Jcrop_Internet_Explorer_Notes.html" title="Jcrop Internet Explorer Notes">Internet Explorer Notes</a> - quirks and issues in IE6+
+</li><li> <a href="/content/Jcrop_Troubleshooting.html" title="Jcrop Troubleshooting">Troubleshooting Problems</a> - when it's this easy?
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 40/1000000
+Post-expand include size: 247/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://deepliquid.com/content/Jcrop_Manual.html">http://deepliquid.com/content/Jcrop_Manual.html</a>"</div>
+			<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/content/Special:Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="/content/Category:Jcrop.html" class="mw-redirect" title="Category:Jcrop">Jcrop</a></span></div></div></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified on 3 April 2009, at 19:46.</li>
+				<li id="viewcount">This page has been accessed 291,290 times.</li>
+			</ul>
+		</div>
+		
+	
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served in 0.795 secs. -->
+<div class="footbar">
+<img src="/css/dl/bkg_footer.jpg" />
+<div id="footertxt">
+<div>
+	&copy;2008-2011 <b><a href="http://deepliquid.com/content/Project:About.html">Deep Liquid Group</a></b> | <a href="/contact/">Contact</a>
+</div>
+</div>
+</div>
+
+</div></div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5176876-1");
+pageTracker._trackPageview();
+</script>
+</body></html>
