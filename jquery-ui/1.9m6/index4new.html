@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery UI Example Page</title>
+	<link type="text/css" href="../../../ui-libs/jquery-ui/1.9m6/themes/base/jquery-ui.css" rel="stylesheet" />	
+	<script type="text/javascript" src="../../../ui-libs/jquery/1.6.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../ui-libs/jquery/plugins/mousewheel/3.0.4/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="../../../ui-libs/jquery-ui/1.9m6/ui/minified/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../ui-libs/jquery-ui/1.9m6/ui/minified/i18n/jquery-ui-i18n.min.js"></script>
+	<script type="text/javascript" src="../../../ui-libs/jquery-ui/themeSwitcher/switcher.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//主题切换器
+			$('#switcher').themeswitcher({
+				initialText:'切换主题',
+				buttonPreText:'主题：',
+				height:400,
+				uiversion:"1.8.16",
+				root:"../../.."
+			});
+			
+			//菜单按钮
+			$("#menu button.menu1").button({
+				icons: {
+					primary: "ui-icon-home",
+					secondary: "ui-icon-triangle-1-s"
+				}
+			}).next().menu({
+				select: function(event, ui) {
+					$(this).hide();
+					$("#log").append("<div>Selected " + ui.item.text() + "</div>");
+				}
+			}).popup();
+			
+			
+			function select(event, ui) {
+				$("<div/>").text("Selected: " + ui.item.text()).appendTo("#log");
+				if (ui.item.text() == 'Quit') {
+					$(this).menubar('destroy');
+				}
+			}
+			
+			//菜单1
+			$("#menu #bar1").menubar({
+				position: {
+					within: $("#demo-frame").add(window).first()
+				},
+				select: select
+			});
+
+			//菜单2
+			$("#menu #bar2").menubar({
+				autoExpand: true,
+				menuIcon: true,
+				buttons: true,
+				position: {
+					within: $("#demo-frame").add(window).first()
+				},
+				select: select
+			});
+			
+			//spinner
+			$( "#spinner #spinner1" ).spinner({
+				spin: function( event, ui ) {
+					if ( ui.value > 10 ) {
+						$( this ).spinner( "value", -10 );
+						return false;
+					} else if ( ui.value < -10 ) {
+						$( this ).spinner( "value", 10 );
+						return false;
+					}
+				}
+			});
+			//$( "#spinner #spinner2" ).timespinner();
+			
+			//popup
+			$("#popup #login-form").popup()
+			.find(":submit").button().click(function(event) {
+				event.preventDefault();
+			});		
+			
+			//tooltip
+			$( "#tooltip" ).tooltip();
+		});
+	</script>
+	<style type="text/css">
+		#login-form {
+			width: 16em; border: 1px solid gray; border-radius: 5px;
+			padding: 1em;
+			box-shadow: 3px 3px 5px -1px rgba(0, 0, 0, 0.5);
+			background: lightgray; background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+			font-size: 1.3em; outline: none;
+		}
+		#login-form label { display: inline-block; width: 5em; }
+		#login-form .submit { margin-left: 5em; }	
+	</style>
+</head>
+<body>
+<div style="position:fixed;right:50px;top:20px;z-index:9999999999;background-color:#ccc;padding:5px;font-size:12px;">
+	<div><b>主题切换器:</b></div>
+	<div id="switcher"></div>
+</div>
+<h1>jQuery UI 1.9m6 新组件的Demo！</h1>
+<div id="menu" style="border:1px solid #f5f5f5;padding:10px;">
+	<span>Menu</span>
+	<button class="menu1">Select a city</button>
+	<ul style="width: 200px;">
+		<li><a href="#Amsterdam">Amsterdam</a></li>
+		<li><a href="#Anaheim">Anaheim</a></li>
+		<li><a href="#Cologne">Cologne</a></li>
+		<li><a href="#Frankfurt">Frankfurt</a></li>
+		<li><a href="#Magdeburg">Magdeburg</a></li>
+		<li><a href="#Munich">Munich</a></li>
+		<li>			
+			<a href="#Delphi">Delphi</a>
+			<ul>
+				<li><a href="#Ada">Ada</a></li>
+				<li><a href="#Saarland">Saarland</a></li>
+				<li><a href="#Salzburg">Salzburg</a></li>
+			</ul>
+		</li>
+		<li><a href="#Zurich">Zurich</a></li>
+	</ul>
+	<br/>
+	<br/>
+	<ul id="bar1" class="menubar">
+		<li>
+			<a href="#File">File</a>
+			<ul>
+				<li><a href="#Open...">Open...</a></li>
+				<li class="ui-state-disabled">Open recent...</li>
+				<li><a href="#Save">Save</a></li>
+				<li><a href="#Save as...">Save as...</a></li>
+				<li><a href="#Close">Close</a></li>
+				<li><a href="#Quit">Quit</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#Edit">Edit</a>
+			<ul>
+				<li><a href="#Copy">Copy</a></li>
+				<li><a href="#Cut">Cut</a></li>
+				<li class="ui-state-disabled">Paste</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#View">View</a>
+			<ul>
+				<li><a href="#Fullscreen">Fullscreen</a></li>
+				<li><a href="#Fit into view">Fit into view</a></li>
+				<li>
+					<a href="#Encoding">Encoding</a>
+					<ul>
+						<li><a href="#Auto-detect">Auto-detect</a></li>
+						<li><a href="#UTF-8">UTF-8</a></li>
+						<li>
+						  <a href="#UTF-16">UTF-16</a>
+					      <ul>
+					         <li><a href="#Option 1">Option 1</a></li>
+					         <li><a href="#Option 2">Option 2</a></li>
+					         <li><a href="#Option 3">Option 3</a></li>
+					         <li><a href="#Option 4">Option 4</a></li>
+					      </ul>
+					   </li>
+					</ul>
+				</li>
+				<li><a href="#Customize...">Customize...</a></li>
+			</ul>
+		</li>
+	</ul>
+	<br/>
+	<ul id="bar2" class="menubar-icons">
+		<li>
+			<a href="#File">File</a>
+			<ul>
+				<li><a href="#Open...">Open...</a></li>
+				<li class="ui-state-disabled">Open recent...</li>
+				<li><a href="#Save">Save</a></li>
+				<li><a href="#Save as...">Save as...</a></li>
+				<li><a href="#Close">Close</a></li>
+				<li><a href="#Quit">Quit</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#Edit">Edit</a>
+			<ul>
+				<li><a href="#Copy">Copy</a></li>
+				<li><a href="#Cut">Cut</a></li>
+				<li class="ui-state-disabled">Paste</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#View">View</a>
+			<ul>
+				<li><a href="#Fullscreen">Fullscreen</a></li>
+				<li><a href="#Fit into view">Fit into view</a></li>
+				<li>
+					<a href="#Encoding">Encoding</a>
+					<ul>
+						<li><a href="#Auto-detect">Auto-detect</a></li>
+						<li><a href="#UTF-8">UTF-8</a></li>
+						<li>
+						  <a href="#UTF-16">UTF-16</a>
+					      <ul>
+					         <li><a href="#Option 1">Option 1</a></li>
+					         <li><a href="#Option 2">Option 2</a></li>
+					         <li><a href="#Option 3">Option 3</a></li>
+					         <li><a href="#Option 4">Option 4</a></li>
+					      </ul>
+					   </li>
+					</ul>
+				</li>
+				<li><a href="#Customize...">Customize...</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div id="spinner" style="border:1px solid #f5f5f5;padding:10px;">
+	<span>Spinner</span>
+	<label for="spinner1">Select a value:</label>
+	<input id="spinner1" name="value" />
+	<label for="spinner2">Time spinner:</label>
+	<input id="spinner2" name="spinner2" value="08:30 PM">
+</div>
+<div id="popup" style="border:1px solid #f5f5f5;padding:10px;">
+	popup:<a href="#login-form">登录</a>
+	<div class="ui-widget-content" id="login-form" aria-label="Login options">
+		<div>
+			<label for="un">Username</label>
+			<input type="text" id="un" />
+		</div>
+		<div>
+			<label for="pw">Password</label>
+			<input type="password" id="pw" />
+		</div>
+		<div>
+			<input type="submit" value="Login" class="submit" />
+		</div>
+	</div>
+</div>
+<div id="tooltip" style="border:1px solid #f5f5f5;padding:10px;">
+	tooltip:<a href="#" title="That's what this widget is">Tooltips</a> can be attached to any element. 
+	<input id="age" title="We ask for your age only for statistical purposes.">
+</div>
+<div id="log" style="position:absolute;right:5px;bottom:5px;background-color:#ccc;padding:4px;font-size:12px;width:300px;max-height:300px;overflow: auto;">test</div>
+</body>
+</html>
+
+
