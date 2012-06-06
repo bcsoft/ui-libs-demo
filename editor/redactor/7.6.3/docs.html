@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>Docs App</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="style.css" /> 		
+	<link rel="stylesheet" type="text/css" href="../../../../ui-libs/editor/redactor/7.6.3/css/redactor.css" /> 		
+	<script type="text/javascript" src="../../../../ui-libs/jquery/1.7/jquery.min.js"></script>	
+	<script type="text/javascript" src="../../../../ui-libs/editor/redactor/7.6.3/redactor.min.js"></script>	
+	<script type="text/javascript">
+	$(document).ready(
+		function()
+		{
+			$('#redactor_content').redactor({ lang: 'zh_cn', css: 'docstyle.css', autoresize: true, fixed: true });
+		}
+	);
+	</script>				
+</head>
+<body>
+	<textarea id="redactor_content" name="content" style="height: 1200px;"><p>Hello and Welcome</p></textarea>
+</body>
+</html>
