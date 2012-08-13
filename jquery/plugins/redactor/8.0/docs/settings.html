@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://redactorjs.com/docs/settings/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<title>Settings</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/combined.css">
+	<link rel="stylesheet" href="../../../../../../ui-libs/jquery/plugins/redactor/8.0/redactor.css" />
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->		
+
+	<script type="text/javascript" src="./js/watch.js"></script>
+	<script type="text/javascript" src="../../../../../../ui-libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./js/prettify.js"></script>	
+	<script src="../../../../../../ui-libs/jquery/plugins/redactor/8.0/redactor.min.js"></script>
+	<script src="../../../../../../ui-libs/jquery/plugins/redactor/8.0/lang/zh_cn.js"></script>
+	
+	<script type="text/javascript">
+	$(function()
+	{
+		$('.redactor').redactor();
+		prettyPrint();
+	});
+	</script>	
+</head>
+<body>
+<div id="top">
+	<div id="top_inner">
+		<div id="logo"><a href="http://imperavi.com/"></a></div>
+		<ul id="appendix">			
+			<li id="maillink"></li>
+			<li><a href="http://twitter.com/imperavi" id="twitterlink">Follow us on Twitter</a></li>
+		</ul>
+	</div>
+</div>
+<div class="wrapper">
+	<div id="page">
+		<header id="header">
+			<h3><a href="http://redactorjs.com/">Redactor</a></h3>
+			<nav id="nav"><ul><li><a href="http://redactorjs.com/">Home</a></li><li><b><a href="http://redactorjs.com/docs/">How it works</a></b></li><li><a href="http://redactorjs.com/log/">What's new</a></li><li><a href="http://redactorjs.com/support/">Support</a></li><li class="red-link"><a href="http://redactorjs.com/download/">Get Redactor</a></li></ul></nav>		
+		</header>
+		<div id="main" class="row">
+			<aside class="quarter">
+				<ul class="list-toc"><li><a href="http://redactorjs.com/docs/">Installation</a></li><li><a href="http://redactorjs.com/docs/multiple/">Multiple editors</a></li><li><a href="http://redactorjs.com/docs/languages/">Languages</a></li><li><a href="http://redactorjs.com/docs/examples/">Examples</a></li><li><span>Settings</span></li><li><a href="http://redactorjs.com/docs/shortcuts/">Keyboard shortcuts</a></li><li><a href="toolbar.html">Toolbar</a></li><li><a href="http://redactorjs.com/docs/images/">Images upload</a></li><li><a href="http://redactorjs.com/docs/files/">Files upload</a></li><li><a href="http://redactorjs.com/docs/autosave/">Autosave</a></li><li><a href="api.html">API</a></li><li><a href="http://redactorjs.com/docs/authors/">Authors</a></li></ul>
+			</aside>
+			<article class="threequarter">
+				
+				<h2>Settings</h2>
+				
+<script type="text/javascript">
+$(function()
+{
+	$('.setting-toggle').click(function()
+	{
+		$(this).parent().next().slideToggle();
+	});
+});
+</script>
+
+<br>
+
+<!-- lang -->
+<p><kbd class="setting-toggle" id="set_lang">lang</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>'en'</code>.</p>
+
+<p>First you must <a href="http://redactorjs.com/docs/languages/">download your language</a>.</p>
+
+<p>To setup a new language in Redactor you should do two things:</p>
+
+<ul>
+	<li>Connect the language file.</li>
+	<li>Call Redactor using the new language option.</li>
+</ul>
+
+
+<p>For example (or see <a href="http://redactorjs.com/docs/examples/lang/">live example</a>):</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"redactor/langs/es.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L1"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span><span class="pln"> </span></li><li class="L2"><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span></li><li class="L3"><span class="pln">    </span><span class="kwd">function</span><span class="pun">()</span></li><li class="L4"><span class="pln">    </span><span class="pun">{</span><span class="pln"> </span></li><li class="L5"><span class="pln">        $</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> lang</span><span class="pun">:</span><span class="pln"> </span><span class="str">'es'</span><span class="pln"> </span><span class="pun">});</span></li><li class="L6"><span class="pln">    </span><span class="pun">}</span></li><li class="L7"><span class="pun">);</span></li><li class="L8"><span class="tag">&lt;/script&gt;</span></li></ol></pre>
+</div>
+
+<!-- direction -->
+<p><kbd class="setting-toggle" id="set_direction">direction</kbd></p>
+<div style="display: none; ">
+<p>Default setting is <code>ltr</code></p>		
+
+<p>Sets text direction (see <a href="http://redactorjs.com/docs/examples/direction/">live example</a>).</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> direction</span><span class="pun">:</span><span class="pln"> </span><span class="str">'rtl'</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+
+<!-- toolbar -->
+
+<p><kbd class="setting-toggle" id="set_toolbar">toolbar</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>'object'</code></p>
+
+<p>If you want to turn a toolbar off set the toolbar option to <code>false</code>:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> toolbar</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+
+<!-- buttons -->
+<p><kbd class="setting-toggle" id="set_buttons">buttons</kbd></p>
+<div style="display: none;">
+<p>By default, this setting contains the following array of toolbar's buttons:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">[</span><span class="str">'html'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'deleted'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L1"><span class="str">'unorderedlist'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'orderedlist'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'outdent'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'indent'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L2"><span class="str">'image'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'video'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'file'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'table'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'link'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L3"><span class="str">'fontcolor'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'backcolor'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L4"><span class="str">'alignleft'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'aligncenter'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'alignright'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'justify'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L5"><span class="str">'horizontalrule'</span><span class="pun">]</span></li></ol></pre>
+
+<p>If you wish to set your own array, set it in this option:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    buttons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'html'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">]</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+
+<!-- buttonsAdd -->
+<p><kbd class="setting-toggle" id="set_buttonsAdd">buttonsAdd</kbd></p>
+<div style="display: none;">
+<p>If you need to add a new button to the toolbar, simply do the following:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    buttonsAdd</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'new_button'</span><span class="pun">]</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+
+<p>Or with divider:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    buttonsAdd</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'new_button'</span><span class="pun">]</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- buttonsCustom -->
+<p><kbd class="setting-toggle" id="set_buttonsCustom">buttonsCustom</kbd></p>
+<div style="display: none;">
+<p>This option allows you to add your own buttons with callback to the toolbar.</p>
+
+<p>For more information about creating your own buttons, go to <a href="http://redactorjs.com/docs/toolbar/">Toolbar</a> section.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    buttonsAdd</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'new_button'</span><span class="pun">],</span></li><li class="L2"><span class="pln">    buttonsCustom</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">        new_button</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">            title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'New Button'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L5"><span class="pln">            callback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span></li><li class="L6"><span class="pln">        </span><span class="pun">}</span><span class="pln"> </span></li><li class="L7"><span class="pln">    </span><span class="pun">}</span></li><li class="L8"><span class="pun">});</span></li></ol></pre>
+
+<p>Or:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    buttons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'html'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'new_button'</span><span class="pun">],</span></li><li class="L2"><span class="pln">    buttonsCustom</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">        new_button</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">            title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'New Button'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L5"><span class="pln">            callback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span></li><li class="L6"><span class="pln">        </span><span class="pun">}</span><span class="pln"> </span></li><li class="L7"><span class="pln">    </span><span class="pun">}</span></li><li class="L8"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- focus -->	
+<p><kbd class="setting-toggle" id="set_focus">focus</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code>.</p>
+<p>This option allows you to set whether Redactor gets cursor focus on load or not.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> focus</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- autoresize -->
+<p><kbd class="setting-toggle" id="set_autoresize">autoresize</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>true</code>.</p>
+<p>This option turns on height autoresizing, which depends on the amount of text inputted into the text layer.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> autoresize</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- fixed -->
+<p><kbd class="setting-toggle" id="set_fixed">fixed</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code>.</p>
+<p>If this option is turned on, Redactor's toolbar will remain at the top of the browser's window at all times.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span><span class="kwd">fixed</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- convertLink -->
+<p><kbd class="setting-toggle" id="set_convertLinks">convertLinks</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>true</code></p>
+
+<p>With this option turned on, Redactor will automatically replace URLs with hyperlinks.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> convertLinks</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>	
+	
+<!-- autosave -->
+<p><kbd class="setting-toggle" id="set_autosave">autosave</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+<p>If you set a path to the handler file, Redactor automatically sends the code at default intervals. 
+Autosave will send variable <code>$_POST['data']</code> independently from <code>textarea</code> name.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> autosave</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/save.php'</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- interval -->
+<p><kbd class="setting-toggle" id="set_interval">interval</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>60</code></p>		
+<p>Autosave interval (in seconds).</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> autosave</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/save.php'</span><span class="pun">,</span><span class="pln"> interval</span><span class="pun">:</span><span class="pln"> </span><span class="lit">30</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- imageGetJson -->
+<p><kbd class="setting-toggle" id="set_imageGetJson">imageGetJson</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>			
+<p>A path to json file, which stores data about files that have already been uploaded.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> imageGetJson</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/images.json'</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+
+<p>json file example:</p>
+
+<pre>[
+	{ "thumb": "/images/1m.jpg", "image": "/images/1.jpg" },
+	{ "thumb": "/images/2m.jpg", "image": "/images/2.jpg" },
+	{ "thumb": "/images/3m.jpg", "image": "/images/3.jpg" },
+	{ "thumb": "/images/4m.jpg", "image": "/images/4.jpg" },
+	{ "thumb": "/images/5m.jpg", "image": "/images/5.jpg" }
+]
+</pre>
+</div>
+
+<!-- imageUpload -->
+<p><kbd class="setting-toggle" id="set_imageUpload">imageUpload</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+<p>This option sets a path to the file that is responsible for uploading images. The handler will receive an array <code>$_FILES['file']</code>.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> imageUpload</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/image_upload.php'</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>
+
+<p>The handler should return JSON, for example:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$array </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span></li><li class="L1"><span class="pln">    </span><span class="str">'filelink'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'/tmp/images/'</span><span class="pun">.</span><span class="pln">$file</span></li><li class="L2"><span class="pun">);</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">echo stripslashes</span><span class="pun">(</span><span class="pln">json_encode</span><span class="pun">(</span><span class="pln">$array</span><span class="pun">));</span><span class="pln">   </span></li></ol></pre>
+</div>
+
+<!-- imageUploadCallback -->
+<p><kbd class="setting-toggle" id="set_imageUploadCallback">imageUploadCallback</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    imageUpload</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/image_upload.php'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L2"><span class="pln">    imageUploadCallback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> json</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L3"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- fileUpload -->
+<p><kbd class="setting-toggle" id="set_fileUpload">fileUpload</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>	
+
+<p>This option sets a path to the file that is responsible for uploading files. The handler will receive an array <code>$_FILES['file']</code>.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> fileUpload</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/file_upload.php'</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>	
+
+<p>The handler should return JSON, for example:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$array </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span></li><li class="L1"><span class="pln">    </span><span class="str">'filelink'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'/files/'</span><span class="pun">.</span><span class="pln">$_FILES</span><span class="pun">[</span><span class="str">'file'</span><span class="pun">][</span><span class="str">'name'</span><span class="pun">],</span></li><li class="L2"><span class="pln">    </span><span class="str">'filename'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> $_FILES</span><span class="pun">[</span><span class="str">'file'</span><span class="pun">][</span><span class="str">'name'</span><span class="pun">]</span></li><li class="L3"><span class="pun">);</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">echo stripslashes</span><span class="pun">(</span><span class="pln">json_encode</span><span class="pun">(</span><span class="pln">$array</span><span class="pun">));</span><span class="pln">	</span></li></ol></pre>
+</div>
+
+<!-- fileUploadCallback -->
+<p><kbd class="setting-toggle" id="set_fileUploadCallback">fileUploadCallback</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    fileUpload</span><span class="pun">:</span><span class="pln"> </span><span class="str">'/file_upload.php'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L2"><span class="pln">    fileUploadCallback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> json</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L3"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- uploadCrossDomain -->
+<p><kbd class="setting-toggle" id="set_uploadCrossDomain">uploadCrossDomain</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+
+<p>This setting turns on/off drag and drop upload because it does not work for cross-domain upload.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    uploadCrossDomain</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- uploadFields -->
+<p><kbd class="setting-toggle" id="set_uploadFields">uploadFields</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+
+<p>You can set up an hidden fields for upload (see <a href="http://redactorjs.com/docs/examples/hidden-fields/">live example</a>).</p>
+
+<p>The field value for "field1" will be taken from input by ID selector:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    uploadFields</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    	</span><span class="str">'field1'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'#field1'</span></li><li class="L3"><span class="pln">    </span><span class="pun">}</span></li><li class="L4"><span class="pun">});</span></li></ol></pre>
+
+<p>The field "field2" will automatically generated with value "12345".</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    uploadFields</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    	</span><span class="str">'field2'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'12345'</span></li><li class="L3"><span class="pln">    </span><span class="pun">}</span></li><li class="L4"><span class="pun">});</span></li></ol></pre>
+
+<p>In the upload script you can take them from POST data.</p>
+</div>
+
+
+<!-- overlay -->
+<p><kbd class="setting-toggle" id="set_overlay">overlay</kbd></p>
+<div style="display: none;">	
+<p>Default setting is <code>true</code></p>		
+
+<p>Turns on and off overlay for modal Redactor's windows.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> overlay</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="pun">});</span></li></ol></pre>	
+</div>
+
+<!-- callback -->
+<p><kbd class="setting-toggle" id="set_callback">callback</kbd></p>
+<div style="display: none;">	
+<p>Default setting is <code>false</code></p>		
+
+<p>Callback after an editor build.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    callback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- keyupCallback -->
+<p><kbd class="setting-toggle" id="set_keyupCallback">keyupCallback</kbd></p>
+<div style="display: none;">	
+<p>Default setting is <code>false</code></p>		
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    keyupCallback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- keydownCallback -->
+<p><kbd class="setting-toggle" id="set_keydownCallback">keydownCallback</kbd></p>
+<div style="display: none;">	
+<p>Default setting is <code>false</code></p>		
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    keydownCallback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- execCommandCallback -->
+<p><kbd class="setting-toggle" id="set_execCommandCallback">execCommandCallback</kbd></p>
+<div style="display: none;">	
+<p>Default setting is <code>false</code></p>
+
+<p>This callback calls a function after any changes in Redactor by execCommand.</p>	
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    execCommandCallback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> command</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- observeImages -->
+<p><kbd class="setting-toggle" id="set_observeImages">observeImages</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>true</code></p>
+
+<p>Enable or disable by clicking on the image to display a modal window image settings.</p>
+
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    observeImages</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+
+<!-- colors -->
+<p><kbd class="setting-toggle" id="set_colors">colors</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>array</code>:</p>
+
+<pre class="prettyprint"><span class="pln">colors</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+    </span><span class="str">'#ffffff'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#000000'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#eeece1'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#1f497d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#4f81bd'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#c0504d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#9bbb59'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#8064a2'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#4bacc6'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#f79646'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#ffff00'</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">'#f2f2f2'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#7f7f7f'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#ddd9c3'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#c6d9f0'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#dbe5f1'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#f2dcdb'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#ebf1dd'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#e5e0ec'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#dbeef3'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#fdeada'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#fff2ca'</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">'#d8d8d8'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#595959'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#c4bd97'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#8db3e2'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#b8cce4'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#e5b9b7'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#d7e3bc'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#ccc1d9'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#b7dde8'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#fbd5b5'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#ffe694'</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">'#bfbfbf'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#3f3f3f'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#938953'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#548dd4'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#95b3d7'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#d99694'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#c3d69b'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#b2a2c7'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#b7dde8'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#fac08f'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#f2c314'</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">'#a5a5a5'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#262626'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#494429'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#17365d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#366092'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#953734'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#76923c'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#5f497a'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#92cddc'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#e36c09'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#c09100'</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">'#7f7f7f'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#0c0c0c'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#1d1b10'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#0f243e'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#244061'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#632423'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#4f6128'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#3f3151'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#31859b'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#974806'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#7f6000'</span><span class="pun">]</span></pre>
+
+<p>You can call the Redactor with custom colors array, for example:</p>
+
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    colors</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'#000000'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#eeece1'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#1f497d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#4f81bd'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#c0504d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#9bbb59'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#8064a2'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#4bacc6'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#f79646'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'#ffff00'</span><span class="pun">]</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- air -->
+<p><kbd class="setting-toggle" id="set_air">air</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+
+<p>You can turn on an air-mode (see <a href="http://redactorjs.com/docs/examples/air/">live example</a>):</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    air</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- airButtons -->
+<p><kbd class="setting-toggle" id="set_airButtons">airButtons</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>array</code></p>
+
+<pre class="prettyprint"><span class="pun">[</span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'deleted'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'unorderedlist'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'orderedlist'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'outdent'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'indent'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'fontcolor'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'backcolor'</span><span class="pun">]</span></pre>
+
+<p>You can set up a custom buttons for air-mode:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    airButtons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'deleted'</span><span class="pun">]</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+<!-- wym -->
+<p><kbd class="setting-toggle" id="set_wym">wym</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>false</code></p>
+
+<p>Turns on a visual structure mode (see <a href="http://redactorjs.com/docs/examples/wym/">live example</a>):</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    wym</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+
+<!-- allowedTags -->
+<p><kbd class="setting-toggle" id="set_allowedTags">allowedTags</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>array</code></p>
+
+<pre class="prettyprint"><span class="pun">[</span><span class="str">"code"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"span"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"div"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"label"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"a"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"br"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"p"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"b"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"i"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"del"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"strike"</span><span class="pun">,</span><span class="pln"> 
+</span><span class="str">"img"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"video"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"audio"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"iframe"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"object"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"embed"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"param"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"blockquote"</span><span class="pun">,</span><span class="pln"> 
+</span><span class="str">"mark"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"cite"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"small"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ul"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ol"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"li"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hr"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"dl"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"dt"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"dd"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"sup"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"sub"</span><span class="pun">,</span><span class="pln"> 
+</span><span class="str">"big"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"pre"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"code"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"figure"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"figcaption"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"strong"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"em"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"table"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"tr"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"td"</span><span class="pun">,</span><span class="pln"> 
+</span><span class="str">"th"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"tbody"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"thead"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"tfoot"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"h1"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"h2"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"h4"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"h5"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"h6"</span><span class="pun">]</span></pre>
+
+<p>You can set up another allowed tags on paste:</p>
+
+<pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> 
+    allowedTags</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">"a"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"p"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"b"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"i"</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">});</span></pre>
+</div>
+
+
+<!-- mobile -->
+<p><kbd class="setting-toggle" id="set_mobile">mobile</kbd></p>
+<div style="display: none;">
+<p>Default setting is <code>true</code></p>
+
+<p>This setting turns on/off the editor for mobile.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span><span class="pln"> </span></li><li class="L1"><span class="pln">    mobile</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+</div>
+
+			</article>	
+		</div>
+	</div>
+	<footer id="footer">© <a href="http://imperavi.com/">Imperavi</a> 2009-2012</footer>
+</div>
+</body></html>

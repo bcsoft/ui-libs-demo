@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://redactorjs.com/docs/api/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<title>API</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/combined.css">
+	<link rel="stylesheet" href="../../../../../../ui-libs/jquery/plugins/redactor/8.0/redactor.css" />
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->		
+
+	<script type="text/javascript" src="./js/watch.js"></script>
+	<script type="text/javascript" src="../../../../../../ui-libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./js/prettify.js"></script>	
+	<script src="../../../../../../ui-libs/jquery/plugins/redactor/8.0/redactor.min.js"></script>
+	<script src="../../../../../../ui-libs/jquery/plugins/redactor/8.0/lang/zh_cn.js"></script>
+	
+	<script type="text/javascript">
+	$(function()
+	{
+		$('.redactor').redactor();
+		prettyPrint();
+	});
+	</script>	
+<body>
+<div id="top">
+	<div id="top_inner">
+		<div id="logo"><a href="http://imperavi.com/"></a></div>
+		<ul id="appendix">			
+			<li id="maillink"></li>
+			<li><a href="http://twitter.com/imperavi" id="twitterlink">Follow us on Twitter</a></li>
+		</ul>
+	</div>
+</div>
+<div class="wrapper">
+	<div id="page">
+		<header id="header">
+			<h3><a href="http://redactorjs.com/">Redactor</a></h3>
+			<nav id="nav"><ul><li><a href="http://redactorjs.com/">Home</a></li><li><b><a href="http://redactorjs.com/docs/">How it works</a></b></li><li><a href="http://redactorjs.com/log/">What's new</a></li><li><a href="http://redactorjs.com/support/">Support</a></li><li class="red-link"><a href="http://redactorjs.com/download/">Get Redactor</a></li></ul></nav>		
+		</header>
+		<div id="main" class="row">
+			<aside class="quarter">
+				<ul class="list-toc"><li><a href="http://redactorjs.com/docs/">Installation</a></li><li><a href="http://redactorjs.com/docs/multiple/">Multiple editors</a></li><li><a href="http://redactorjs.com/docs/languages/">Languages</a></li><li><a href="http://redactorjs.com/docs/examples/">Examples</a></li><li><a href="settings.html">Settings</a></li><li><a href="http://redactorjs.com/docs/shortcuts/">Keyboard shortcuts</a></li><li><a href="toolbar.html">Toolbar</a></li><li><a href="http://redactorjs.com/docs/images/">Images upload</a></li><li><a href="http://redactorjs.com/docs/files/">Files upload</a></li><li><a href="http://redactorjs.com/docs/autosave/">Autosave</a></li><li><span>API</span></li><li><a href="http://redactorjs.com/docs/authors/">Authors</a></li></ul>
+			</aside>
+			<article class="threequarter">
+				
+				<h2>API</h2>
+				
+<script type="text/javascript">
+$(function()
+{
+	$('.setting-toggle').click(function()
+	{
+		$(this).parent().next().slideToggle();
+	});
+});
+</script>
+
+<br>
+
+<p><kbd class="setting-toggle">getEditor</kbd></p>
+<div style="display: none;">
+<p>Returns an object of the Redactor's editable layer.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">getEditor</span><span class="pun">();</span></li></ol></pre>
+</div>
+
+
+<p><kbd class="setting-toggle">getCode</kbd></p>
+<div style="display: none;">
+<p>Returns the Redactor's HTML-code.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">getCode</span><span class="pun">();</span></li></ol></pre>
+</div>
+
+<p><kbd class="setting-toggle">setCode</kbd></p>
+<div style="display: none;">
+<p>Puts an HTML code into the Redactor.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">setCode</span><span class="pun">(</span><span class="str">'&lt;p&gt;text&lt;/p&gt;'</span><span class="pun">);</span></li></ol></pre>
+</div>
+
+
+<p><kbd class="setting-toggle">getText</kbd></p>
+<div style="display: none;">
+<p>Returns Redactor's html as plain text.</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">getText</span><span class="pun">();</span></li></ol></pre>
+</div>
+
+
+<p><kbd class="setting-toggle">getSelected</kbd></p>
+<div style="display: none;">
+<p>Returns Redactor's selected html.</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">getSelected</span><span class="pun">();</span></li></ol></pre>
+</div>
+
+
+<p><kbd class="setting-toggle">insertHtml</kbd></p>
+<div style="display: none;">
+<p>Puts an HTML code before the cursor.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">insertHtml</span><span class="pun">(</span><span class="str">'&lt;p&gt;insert&lt;/p&gt;'</span><span class="pun">);</span></li></ol></pre>
+</div>
+
+
+<p><kbd class="setting-toggle">destroyEditor</kbd></p>
+<div style="display: none;">
+<p>Recovers <code>textarea</code> by removing <code>iframe</code>.</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">destroyEditor</span><span class="pun">();</span></li></ol></pre>
+</div>
+
+<p><kbd class="setting-toggle">setFocus</kbd></p>
+<div style="display: none;">
+<p>Sets a focus to the Redactor.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">setFocus</span><span class="pun">();</span></li></ol></pre>
+</div>
+
+
+<p><kbd class="setting-toggle">execCommand</kbd></p>
+<div style="display: none;">
+<p>This option allow you to execute the execCommand.</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">execCommand</span><span class="pun">(</span><span class="str">'bold'</span><span class="pun">);</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">execCommand</span><span class="pun">(</span><span class="str">'formatblock'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'&lt;h5&gt;'</span><span class="pun">);</span></li><li class="L2"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">execCommand</span><span class="pun">(</span><span class="str">'inserthtml'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'&lt;p&gt;text&lt;/p&gt;'</span><span class="pun">);</span></li></ol></pre>
+</div>
+			</article>	
+		</div>
+	</div>
+	<footer id="footer">© <a href="http://imperavi.com/">Imperavi</a> 2009-2012</footer>
+</div>
+</body></html>

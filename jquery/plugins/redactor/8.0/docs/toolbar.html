@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://redactorjs.com/docs/toolbar/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<title>Toolbar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/combined.css">
+	<link rel="stylesheet" href="../../../../../../ui-libs/jquery/plugins/redactor/8.0/redactor.css" />
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->		
+
+	<script type="text/javascript" src="./js/watch.js"></script>
+	<script type="text/javascript" src="../../../../../../ui-libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./js/prettify.js"></script>	
+	<script src="../../../../../../ui-libs/jquery/plugins/redactor/8.0/redactor.min.js"></script>
+	<script src="../../../../../../ui-libs/jquery/plugins/redactor/8.0/lang/zh_cn.js"></script>
+	
+	<script type="text/javascript">
+	$(function()
+	{
+		$('.redactor').redactor();
+		prettyPrint();
+	});
+	</script>	
+<body>
+<div id="top">
+	<div id="top_inner">
+		<div id="logo"><a href="http://imperavi.com/"></a></div>
+		<ul id="appendix">			
+			<li id="maillink"></li>
+			<li><a href="http://twitter.com/imperavi" id="twitterlink">Follow us on Twitter</a></li>
+		</ul>
+	</div>
+</div>
+<div class="wrapper">
+	<div id="page">
+		<header id="header">
+			<h3><a href="http://redactorjs.com/">Redactor</a></h3>
+			<nav id="nav"><ul><li><a href="http://redactorjs.com/">Home</a></li><li><b><a href="http://redactorjs.com/docs/">How it works</a></b></li><li><a href="http://redactorjs.com/log/">What's new</a></li><li><a href="http://redactorjs.com/support/">Support</a></li><li class="red-link"><a href="http://redactorjs.com/download/">Get Redactor</a></li></ul></nav>		
+		</header>
+		<div id="main" class="row">
+			<aside class="quarter">
+				<ul class="list-toc"><li><a href="http://redactorjs.com/docs/">Installation</a></li><li><a href="http://redactorjs.com/docs/multiple/">Multiple editors</a></li><li><a href="http://redactorjs.com/docs/languages/">Languages</a></li><li><a href="http://redactorjs.com/docs/examples/">Examples</a></li><li><a href="settings.html">Settings</a></li><li><a href="http://redactorjs.com/docs/shortcuts/">Keyboard shortcuts</a></li><li><span>Toolbar</span></li><li><a href="http://redactorjs.com/docs/images/">Images upload</a></li><li><a href="http://redactorjs.com/docs/files/">Files upload</a></li><li><a href="http://redactorjs.com/docs/autosave/">Autosave</a></li><li><a href="api.html">API</a></li><li><a href="http://redactorjs.com/docs/authors/">Authors</a></li></ul>
+			</aside>
+			<article class="threequarter">
+				
+				<h2>Toolbar</h2>
+				<p>By default, Redactor has the following set of buttons:</p>
+
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">[</span><span class="str">'html'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'deleted'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L1"><span class="str">'unorderedlist'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'orderedlist'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'outdent'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'indent'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L2"><span class="str">'image'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'video'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'file'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'table'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'link'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L3"><span class="str">'fontcolor'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'backcolor'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L4"><span class="str">'alignleft'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'aligncenter'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'alignright'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'justify'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span></li><li class="L5"><span class="str">'horizontalrule'</span><span class="pun">]</span></li></ol></pre>
+
+
+<p>If you need to setup your own set of buttons you can do so using this option:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L1"><span class="pln">    buttons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">]</span><span class="pln"> </span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+
+
+
+<h3>How to create a button</h3>
+
+<p>First, set an icon from any of the styles available to represent your new button, like this:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">body </span><span class="pun">.</span><span class="pln">redactor_toolbar li a</span><span class="pun">.</span><span class="pln">redactor_btn_button1  </span><span class="pun">{</span></li><li class="L2"><span class="pln">    background</span><span class="pun">:</span><span class="pln"> url</span><span class="pun">(</span><span class="str">/img/</span><span class="pln">button1</span><span class="pun">.</span><span class="pln">png</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">no</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">;</span></li><li class="L3"><span class="pun">}</span></li><li class="L4"><span class="tag">&lt;/style&gt;</span></li></ol></pre>
+
+<p>The button size is 25x25px (and 50x50px for retina).</p>
+
+<p>Now you can call Redactor with the new button specified in an array:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span></li><li class="L1"><span class="pln">    </span><span class="kwd">function</span><span class="pun">()</span></li><li class="L2"><span class="pln">    </span><span class="pun">{</span></li><li class="L3"><span class="pln">        </span><span class="kwd">var</span><span class="pln"> buttons </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'formatting'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bold'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'italic'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'button1'</span><span class="pun">];</span></li><li class="L4"><span class="pln">	</span></li><li class="L5"><span class="pln">        $</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L6"><span class="pln">            focus</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span></li><li class="L7"><span class="pln">            buttons</span><span class="pun">:</span><span class="pln"> buttons</span><span class="pun">,</span><span class="pln"> </span></li><li class="L8"><span class="pln">            buttonsCustom</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">                button1</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">                    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Button'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L1"><span class="pln">                    callback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li><li class="L2"><span class="pln">                </span><span class="pun">}</span></li><li class="L3"><span class="pln">            </span><span class="pun">}</span></li><li class="L4"><span class="pln">        </span><span class="pun">});</span></li><li class="L5"><span class="pln">    </span><span class="pun">}</span></li><li class="L6"><span class="pun">);</span></li></ol></pre>
+
+<p>Or you can add the new button in the array by default:</p>
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span></li><li class="L1"><span class="pln">    </span><span class="kwd">function</span><span class="pun">()</span></li><li class="L2"><span class="pln">    </span><span class="pun">{</span><span class="pln">		</span></li><li class="L3"><span class="pln">        $</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L4"><span class="pln">            focus</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span></li><li class="L5"><span class="pln">            buttonsAdd</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'button1'</span><span class="pun">],</span><span class="pln"> </span></li><li class="L6"><span class="pln">            buttonsCustom</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">                button1</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">                    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Button'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L9"><span class="pln">                    callback</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">…</span><span class="pln"> </span><span class="pun">}</span><span class="pln">  </span></li><li class="L0"><span class="pln">                </span><span class="pun">}</span></li><li class="L1"><span class="pln">            </span><span class="pun">}</span></li><li class="L2"><span class="pln">        </span><span class="pun">});</span></li><li class="L3"><span class="pln">    </span><span class="pun">}</span></li><li class="L4"><span class="pun">);</span></li></ol></pre>
+
+
+<p>Obviously, the new button's function can be external:</p>
+
+
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> testButton</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> key</span><span class="pun">)</span></li><li class="L1"><span class="pun">{</span></li><li class="L2"><span class="pln">    alert</span><span class="pun">(</span><span class="pln">key</span><span class="pun">);</span></li><li class="L3"><span class="pun">}</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span></li><li class="L6"><span class="pln">    </span><span class="kwd">function</span><span class="pun">()</span></li><li class="L7"><span class="pln">    </span><span class="pun">{</span><span class="pln">		</span></li><li class="L8"><span class="pln">        $</span><span class="pun">(</span><span class="str">'#redactor'</span><span class="pun">).</span><span class="pln">redactor</span><span class="pun">({</span></li><li class="L9"><span class="pln">            focus</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span></li><li class="L0"><span class="pln">            buttonsAdd</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'|'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'button1'</span><span class="pun">],</span><span class="pln"> </span></li><li class="L1"><span class="pln">            buttonsCustom</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">                button1</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">                    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Button'</span><span class="pun">,</span><span class="pln"> </span></li><li class="L4"><span class="pln">                    callback</span><span class="pun">:</span><span class="pln"> testButton </span></li><li class="L5"><span class="pln">                </span><span class="pun">}</span><span class="pln"> </span></li><li class="L6"><span class="pln">            </span><span class="pun">}</span></li><li class="L7"><span class="pln">        </span><span class="pun">});</span></li><li class="L8"><span class="pln">    </span><span class="pun">}</span></li><li class="L9"><span class="pun">);</span></li></ol></pre>
+
+			</article>	
+		</div>
+	</div>
+	<footer id="footer">© <a href="http://imperavi.com/">Imperavi</a> 2009-2012</footer>
+</div>
+</body></html>
