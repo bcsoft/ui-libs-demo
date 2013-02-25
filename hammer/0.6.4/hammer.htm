@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://eightmedia.github.com/hammer.js/ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Hammer.js — A javascript library for multi touch gestures</title>
+<link href="./style/style.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+html,body {
+	margin: 0;
+	padding: 0;
+	font: 16px/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+html {
+	background: #202020 url(style/bg.png);
+}
+
+body {
+	background: url(style/mchammer.png) no-repeat 95% 100%;
+	color: #fff;
+}
+
+img {
+	border: none;
+}
+
+article {
+	max-width: 660px;
+	margin: 0 auto;
+	position: relative;
+}
+
+h1,h2 {
+	margin: 0;
+	font: 300 36px 'Oswald', sans-serif;
+}
+
+h2 {
+	margin: 0 0 15px 20px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
+}
+
+hgroup h2 {
+	text-align: center;
+	margin: 0;
+}
+
+h1 {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background: url(style/logo.png) no-repeat 50% 0;
+	height: 75px;
+	margin-top: 48px;
+}
+
+div {
+	background: #000;
+	background: rgba(0, 0, 0, .6);
+	padding: 10px;
+	margin-bottom: 50px;
+}
+
+ul {
+	margin: 0;
+	padding: 0 15px;
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+.icons {
+	background: none;
+	padding: 0;
+}
+
+.icons ul {
+	list-style: none;
+	font: 300 18px 'Oswald', sans-serif;
+	overflow: hidden;
+	text-align: center;
+	padding: 0;
+}
+
+.icons img {
+	display: block;
+}
+
+.icons li {
+	float: left;
+	margin-right: 17px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
+}
+
+li {
+	color: #fc0;
+	padding: 5px 0;
+}
+
+li span {
+	color: #fff;
+}
+
+section {
+	text-align: center;
+	overflow: hidden;
+	margin: 50px 0;
+}
+
+section a {
+	font-weight: 14px;
+	display: inline-block;
+	width: 222px;
+	margin: 0 15px;
+	text-align: center;
+	text-decoration: none;
+	background: #000;
+	color: #fff;
+	padding: 12px 0;
+}
+
+section a:first-child {
+	background: #fc0;
+	color: #000;
+}
+
+section.eightmedia a {
+	color: #fff;
+	font-size: 13px;
+	line-height: 16px;
+	background: none;
+	padding: 0;
+}
+
+section.eightmedia a img {
+	margin-top: 5px;
+}
+
+section span {
+	display: block;
+	text-transform: uppercase;
+	font: 400 20px 'Oswald', sans-serif;
+}
+
+#touchme {
+	width: 100%;
+	height: 300px;
+	position: relative;
+	background-color: black;
+	margin-bottom: 100px;
+}
+
+#touchme p {
+	text-align: center;
+	font: 400 36px/36px 'Oswald', sans-serif;
+	color: #ffce00;
+	margin-top: 130px;
+}
+
+#callout {
+	position: absolute;
+	background-color: #ffce00;
+	color: black;
+	font: 400 24px/36px 'Oswald', sans-serif;
+	position: absolute;
+	bottom: -50px;
+	left: 0;
+	padding: 4px 10px;
+}
+
+#callout:after {
+	content: '';
+	display: block;
+	width: 39px;
+	height: 20px;
+	position: absolute;
+	top: -20px;
+	left: 120px;
+	background: url('style/balloon.png') no-repeat top left;
+}
+
+.v2 {
+	background: #fff;
+	padding: 8px 10px;
+	color: #000;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: 130px;
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	-o-transform: rotate(5deg);
+	transform: rotate(5deg);
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .6);
+	box-shadow: 0 0 4px rgba(0, 0, 0, .6);
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<article>
+		<hgroup>
+			<h1>Hammer.js</h1>
+			<h2>A javascript library for multi-touch gestures</h2>
+		</hgroup>
+
+		<a href="http://eightmedia.github.com/hammer.js/v2/" class="v2">v2
+			is coming!<br>Check it out
+		</a>
+
+		<section>
+			<a href="https://github.com/eightmedia/hammer.js">View Hammer.js
+				<span>on GitHub</span>
+			</a> <a href="https://github.com/EightMedia/hammer.js/zipball/master"><span>Download
+					source</span> It's just 2kb (minified)</a>
+		</section>
+
+		<div id="touchme"
+			style="-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+			<p>You can touch me...</p>
+			<span id="callout">Bust a few moves...</span>
+		</div>
+
+		<h2>Why use Hammer.js?</h2>
+		<div>
+			<ul>
+				<li><span>easy implementation of touch events in your
+						website</span></li>
+				<li><span>lightweight with only 2kb (minified and gzip),
+						easy to dig into</span></li>
+				<li><span>focused javascript library, only for
+						multi-touch gestures</span></li>
+				<li><span>completely standalone, and a jQuery plugin is
+						available</span></li>
+			</ul>
+		</div>
+
+		<h2>Gesture supported by Hammer.js</h2>
+		<div class="icons">
+			<ul>
+				<li><img src="./style/tap.png" width="90" height="90"
+					alt="">Tap</li>
+				<li><img src="./style/doubletap.png" width="90"
+					height="90" alt="">Double Tap</li>
+				<li><img src="./style/drag.png" width="90" height="90"
+					alt="">Swipe</li>
+				<li><img src="./style/hold.png" width="90" height="90"
+					alt="">Hold</li>
+				<li><img src="./style/transform.png" width="90"
+					height="90" alt="">Transform</li>
+				<li><img src="./style/drag.png" width="90" height="90"
+					alt="">Drag</li>
+			</ul>
+		</div>
+
+		<section>
+			<a href="https://github.com/eightmedia/hammer.js">View Hammer.js
+				<span>on GitHub</span>
+			</a> <a href="https://github.com/EightMedia/hammer.js/zipball/master"><span>Download
+					source</span> It's just 2kb (minified)</a>
+		</section>
+
+		<section class="eightmedia">
+			<a href="http://www.eight.nl/"> <img
+				src="./style/eight.png" width="100" height="33"
+				alt="Internetbureau Eight Media in Arnhem">
+			</a>
+		</section>
+
+		<script type="text/javascript" src="../../../ui-libs/hammer/0.6.4/hammer.js"></script>
+		<script>
+			var container = document.getElementById('touchme'), callout = document
+					.getElementById('callout'), shouts = {}
+			shouts['hold'] = 'You are holding me.';
+			shouts['tap'] = 'You just tapped me.';
+			shouts['doubletap'] = 'You just tapped me. Twice.';
+			shouts['transformstart'] = 'You started transforming me.';
+			shouts['transform'] = 'You are transforming me.';
+			shouts['transformend'] = 'You just transformed me.';
+			shouts['dragstart'] = 'You started dragging me.';
+			shouts['drag'] = 'You are dragging me.';
+			shouts['dragend'] = 'You just dragged me.';
+			shouts['swipe'] = 'You just swiped me.';
+
+			container.onselectstart = function() {
+				return false;
+			}; // IE fix for doubletap
+
+			var hammer = new Hammer(container, {
+				tap_max_interval : 700
+			// seems to bee needed for IE8
+			});
+
+			function shout(e) {
+				callout.innerHTML = 'Ooh! ' + shouts[e.type];
+			}
+
+			var type;
+			for (type in shouts) {
+				hammer['on' + type] = shout;
+			}
+		</script>
+	</article>
+</body>
+</html>
