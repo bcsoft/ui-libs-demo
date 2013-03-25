@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://github.com/EightMedia/hammer.js/wiki/Getting-Started -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Getting Started · EightMedia/hammer.js Wiki</title>
+<style type="text/css">
+pre{
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	font-size: 13px;
+	line-height: 19px;
+	overflow: auto;
+	padding: 6px 10px;
+	border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<div id="wiki-wrapper" class="page">
+<div id="head">
+  <ul class="wiki-actions readability-extra">
+    <li class="gollum-minibutton"><a href="/EightMedia/hammer.js/wiki/Getting-Started/_history" class="minibutton bigger action-page-history">
+       Page History
+     </a></li>
+  </ul>
+  <h1 class="instapaper_title">Getting Started</h1>
+</div>
+<div id="wiki-content">
+  <div class="wrap">
+  <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+    <div class="markdown-body">
+      <p>Hammer became simpler to use, with an jQuery-like API. You don't need to add the new keyword, and the eventlisteners are chainable.</p>
+
+<pre lang="js"><code>    var element = document.getElementById('test_el');
+    var hammertime = Hammer(element).on("tap", function(event) {
+        alert('hello!');
+    });
+</code></pre>
+
+<p>You can change the default settings by adding an second argument with options</p>
+
+<pre lang="js"><code>    var hammertime = Hammer(element, {
+        drag: false,
+        transform: false
+    });
+</code></pre>
+
+<p>Events can be added/removed with the on and off methods, just like you would in jQuery.
+Event delegation is also possible when you use the jQuery plugin.</p>
+
+<pre lang="js"><code>    $('#test_el').hammer().on("tap", ".nested_el", function(event) {
+        console.log(this, event);
+    });
+</code></pre>
+
+<h3>
+<a name="gesture-events" class="anchor" href="#gesture-events"><span class="mini-icon mini-icon-link"></span></a>Gesture Events</h3>
+
+<p>The following gestures are available, you can find options for it in gestures.js</p>
+
+<ul>
+<li>hold</li>
+<li>tap</li>
+<li>doubletap</li>
+<li>drag, dragstart, dragend, dragup, dragdown, dragleft, dragright</li>
+<li>swipe, swipeup, swipedown, swipeleft, swiperight</li>
+<li>transform, transformstart, transformend</li>
+<li>rotate</li>
+<li>pinch, pinchin, pinchout</li>
+<li>touch (gesture detection starts)</li>
+<li>release (gesture detection ends)</li>
+</ul><h3>
+<a name="gesture-options" class="anchor" href="#gesture-options"><span class="mini-icon mini-icon-link"></span></a>Gesture Options</h3>
+
+<p>The following options are available, and shown is their default value. You can find more info about it in the source code, in <code>src/gestures.js</code> probably.</p>
+
+<pre><code>doubletap_distance: 20
+doubletap_interval: 300
+drag: true
+drag_block_horizontal: false
+drag_block_vertical: false
+drag_lock_to_axis: false
+drag_max_touches: 1
+drag_min_distance: 10
+hold: true
+hold_threshold: 3
+hold_timeout: 500
+prevent_default: true
+prevent_mouseevents: false
+release: true
+show_touches: true
+stop_browser_behavior: Object
+swipe: true
+swipe_max_touches: 1
+swipe_velocity: 0.7
+tap: true
+tap_max_distance: 10
+tap_max_touchtime: 250
+touch: true
+transform: true
+transform_always_block: false
+transform_min_rotation: 1
+transform_min_scale: 0.01
+</code></pre>
+
+<h3>
+<a name="event-data" class="anchor" href="#event-data"><span class="mini-icon mini-icon-link"></span></a>Event Data</h3>
+
+<p>The <code>event</code> argument in the callback contains the same properties for each gesture, making more sense for some than for others.
+The gesture that was triggered is found in <code>event.type</code>. Following properties are available in <code>event.gesture</code>. Best practice is to just do a <code>console.log(event)</code> while you're developing.</p>
+
+<pre><code>timestamp   {Number}        time the event occurred
+target      {HTMLElement}   target element
+touches     {Array}         touches (fingers, mouse) on the screen
+pointerType {String}        kind of pointer that was used. matches Hammer.POINTER_MOUSE|TOUCH
+center      {Object}        center position of the touches. contains pageX and pageY
+deltaTime   {Number}        the total time of the touches in the screen
+deltaX      {Number}        the delta on x axis we haved moved
+deltaY      {Number}        the delta on y axis we haved moved
+velocityX   {Number}        the velocity on the x
+velocityY   {Number}        the velocity on y
+angle       {Number}        the angle we are moving
+direction   {String}        the direction we are moving. matches Hammer.DIRECTION_UP|DOWN|LEFT|RIGHT
+distance    {Number}        the distance we haved moved
+scale       {Number}        scaling of the touches, needs 2 touches
+rotation    {Number}        rotation of the touches, needs 2 touches *
+eventType   {String}        matches Hammer.EVENT_START|MOVE|END
+srcEvent    {Object}        the source event, like TouchStart or MouseDown *
+startEvent  {Object}        contains the same properties as above,
+                            but from the first touch. this is used to calculate
+                            distances, deltaTime, scaling etc
+</code></pre>
+    </div>
+  </div>
+  </div>
+
+</div>
+<div id="gollum-footer">
+  <p id="last-edit">
+    Last edited by jtangelder, <time class="js-relative-date" datetime="2013-03-23T05:54:07-07:00" title="2013-03-23 05:54:07">2 days ago</time>
+  </p>
+</div>
+</div>
+</body>
+</html>
