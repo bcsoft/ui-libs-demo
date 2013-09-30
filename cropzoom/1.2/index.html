@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CropZoom</title>
+<link rel="stylesheet" type="text/css"
+	href="../../../ui-libs/jquery-ui/1.9.2/themes/base/jquery-ui.css" />
+<link rel="Stylesheet" type="text/css"
+	href="../../../ui-libs/cropzoom/1.2/jquery.cropzoom.css" />
+<script type="text/javascript"
+	src="../../../ui-libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript"
+	src="../../../ui-libs/jquery-ui/1.9.2/ui/minified/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="../../../ui-libs/cropzoom/1.2/jquery.cropzoom.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+<!--[if IE 6]><link rel="stylesheet" href="style.ie6.css" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="style.ie7.css" type="text/css" media="screen" /><![endif]-->
+<style type="text/css">
+#zoom,#rot {
+	width: 360px;
+	margin: auto;
+	height: 25px;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(
+		function() {
+			var cropzoom = $('#crop_container').cropzoom({
+				width : 400,
+				height : 300,
+				bgColor : '#CCC',
+				enableRotation : true,
+				enableZoom : true,
+				zoomSteps : 1,
+				rotationSteps : 1,
+				selector : {
+					centered : true,
+					startWithOverlay : true,
+					borderColor : 'blue',
+					borderColorHover : 'red'
+				},
+				image : {
+					source : 'chicas1024.jpg',
+					width : 1024,
+					height : 768,
+					minZoom : 10,
+					maxZoom : 150
+				}
+			});
+			cropzoom.setSelector(45, 45, 200, 150, true);
+			$('#crop').click(
+				function() {
+					cropzoom.send('resize_and_crop_imagick.php', 'POST', {},
+						function(rta) {
+							$('.result').find('img').remove();
+							var img = $('<img />').attr('src', rta);
+							$('.result').find('.txt').hide().end().append(img);
+						});
+				});
+			$('#restore').click(function() {
+				$('.result').find('img').remove();
+				$('.result').find('.txt').show()
+				cropzoom.restore();
+			})
+		})
+</script>
+<style type="text/css">
+#img_to_crop {
+	-webkit-user-drag: element;
+	-webkit-user-select: none;
+}
+</style>
+</head>
+<body>
+	<div class="Post-inner">
+		<div class="PostMetadataHeader">
+			<h2 class="PostHeader">Example</h2>
+		</div>
+		<div class="PostContent">
+			<div class="boxes">
+				<div id="crop_container"></div>
+				<div class="result">
+					<div class="txt">Here you will see the cropped image</div>
+				</div>
+				<div class="cleared"></div>
+			</div>
+			<br /> <span class="button-wrapper" id="crop"> <span
+				class="l"> </span> <span class="r"> </span> <a class="button"
+				href="javascript:void(0)">Crop</a>
+			</span> &nbsp; <span class="button-wrapper" id="restore"> <span
+				class="l"> </span> <span class="r"> </span> <a class="button"
+				href="javascript:void(0)">Restore</a>
+			</span>
+		</div>
+		<div class="cleared"></div>
+	</div>
+</body>
+</html>
