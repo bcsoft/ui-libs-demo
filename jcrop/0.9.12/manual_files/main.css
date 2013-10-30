@@ -1,0 +1,13 @@
+#editform textarea { width: 580px; }
+#toolbar, #wpTextbox1 { clear: none; }
+
+.printfooter, #f-poweredbyico { display: none; }
+
+#footer { border-top: 1px #bbb solid; width: 65%; margin-top: 1.6em; padding-top: 8px; }
+#footer ul { list-style: none inside; margin: 0; padding: 0; line-height: 110%; font-size: 75%; color: #bbb; }
+
+a.new { color: #c47518 !important; text-decoration: none !important; cursor: default; }
+.toctoggle { display: none; }
+#toctitle h2 { border: none; margin-top: .5em; }
+#p-personal, #p-cactions, #p-tb { display: none; }
+
