@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://youryida.duapp.com/demo_KineticJS/point_line_drag.html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font: 1em 'Microsoft Yahei';
+        }
+
+        #canvasBox, #toolsBar {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        #canvasBox div {
+            border: 1px solid #ccc;
+        }
+
+        #toolsBar .btn_on_off {
+            padding: 4px 18px;
+        }
+
+        #toolsBar .on {
+            border: 4px solid #666;
+        }
+    </style>
+    <script type="text/javascript" src="../../../ui-libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../ui-libs/kineticjs/4.7.4/kinetic.min.js"></script>
+    <script>
+        touchable = 'ontouchstart' in window;
+        eventAdapt();
+        $(function () {
+            cvsInit();
+            ToolBtnBind();
+        });
+        //适应触控设备
+        function eventAdapt() {
+            mousedown = touchable ? "touchstart " : "mousedown ";
+            mouseup = touchable ? "touchend " : "mouseup ";
+            mousemove = touchable ? "touchmove " : "mousemove ";
+            mouseout = touchable ? "touchcancel " : "mouseout ";
+        }
+
+        function cvsInit() {
+            //新建一个画板（舞台）
+            stage = new Kinetic.Stage({
+                container: 'canvasBox',
+                width: 600,
+                height: 300
+            });
+            layer = new Kinetic.Layer();
+            stage.add(layer);//添加一个层
+            count = 0;//绘图时用到的计数器
+            cvs = stage.getContent().firstChild;
+            cvsTop = $(cvs).offset().top;
+            cvsLeft = $(cvs).offset().left;
+        }
+        function ToolBtnBind() {
+            $(".btn_on_off").on(mousedown, function () {
+                var idName = $(this).attr("id");
+                if ($(".on").length > 0) toolBtnEvnReset();
+                eval(idName + "(this)");
+            });
+        }
+        function toolBtnEvnReset() {
+            $(cvs).unbind(mousedown + mousemove + mouseup);//按钮释放时 解绑所有事件
+        }
+        function getOffset(e, i) {//event,触点索引
+            var x, y, index = 0, os = {};
+            if (typeof i != "undefined") index = i;
+            if (touchable) {
+                var et = e.originalEvent.touches[index];
+                x = et.clientX - cvsLeft;
+                y = et.clientY - cvsTop;
+            } else {
+                x = e.offsetX;
+                y = e.offsetY;
+            }
+            os.x = x;
+            os.y = y;
+            return os;
+        }
+        //移动****************************************************
+        function move(btn) {
+            if ($(btn).hasClass("on")) {
+                $(btn).removeClass("on");
+                return;
+            }
+            $(".on").removeClass("on");
+            $(btn).addClass("on");
+            var es = layer.getChildren();//layer所有元素可拖拽
+            es.each(function (c) {
+                c.setDraggable(true);
+            });
+        }
+        //点****************************************************
+        function pointAdd(btn) {
+            if ($(btn).hasClass("on")) {
+                $(btn).removeClass("on");
+                return;
+            }
+            $(".on").removeClass("on");
+            $(btn).addClass("on");
+            $(cvs).on(mousedown,function (e) {
+                e.preventDefault();
+                var x = getOffset(e).x;
+                var y = getOffset(e).y;
+                pointDraw(x, y);
+            }).on(mouseup, function () {
+                        var point = stage.find("#point" + count);
+                        if (point.length == 1) point[0].setDraggable(false);
+                    });
+        }
+        function pointDraw(x, y) {
+            var circle = new Kinetic.Circle({
+                x: x,
+                y: y,
+                radius: 10,
+                fill: 'black',
+                draggable: true,
+                id: "point" + (++count) //down出点后在up之前应该可以拖动 up时再改为draggable: false
+            });
+            layer.add(circle);
+            layer.draw();
+        }
+
+        //线****************************************************
+        function lineAdd(btn) {
+            if ($(btn).hasClass("on")) {
+                $(btn).removeClass("on");
+                return;
+            }
+            $(".on").removeClass("on");
+            $(btn).addClass("on");
+            $(cvs).on(mousedown,function (e) {
+                e.preventDefault();
+                var x = getOffset(e).x;
+                var y = getOffset(e).y;
+                posStart = [x, y];
+            }).on(mousemove,function (e) {
+                        e.preventDefault();
+                        if (typeof posStart == "undefined") return;
+                        var x = getOffset(e).x;
+                        var y = getOffset(e).y;
+                        posOver = [x, y];
+                        var preLineId = "line" + count;
+                        var preLine = stage.find('#' + preLineId);
+                        if (preLine.length == 1) preLine[0].destroy();
+                        lineDraw(posStart, posOver);
+                    }).on(mouseup, function (e) {
+                        count++;
+                        posStart = undefined;
+                        return false;//停止插件对click的监听
+                    });
+        }
+        function lineDraw(a, b) {
+            if (a.toString() == b.toString()) return;
+            var p = [a, b];
+            var line = new Kinetic.Line({
+                points: p,
+                stroke: 'blue',
+                strokeWidth: 8,
+                lineCap: 'round',
+                lineJoin: 'round',
+                id: "line" + (++count) //鼠标移动时根据id 删除上一个鼠标位置画的线
+            });
+            layer.add(line);
+            layer.draw();
+        }
+
+        console.log("闭门造车一周，研究kineticJS完成这么一个小demo，实现方式和代码风格上希望和小伙伴儿们做些交流！qq1140215489\n对kineticJS感兴趣的朋友，请入群251572039。");
+    </script>
+</head>
+<body>
+<div id="toolsBar">
+    <button class="btn_on_off on" id="move">移动</button>
+    <button class="btn_on_off" id="pointAdd">点</button>
+    <button class="btn_on_off" id="lineAdd">线</button>
+</div>
+<div id="canvasBox">
+    <div class="kineticjs-content" style="position: relative; display: inline-block; width: 600px; height: 300px;">
+        <canvas width="600" height="300"
+                style="padding: 0px; margin: 0px; border: 0px; background-color: transparent; position: absolute; top: 0px; left: 0px; width: 600px; height: 300px; background-position: initial initial; background-repeat: initial initial;">
+        </canvas>
+    </div>
+</div>
+</body>
+</html>
