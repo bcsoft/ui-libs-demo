@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         metadata-complete="false"
+         version="3.1">
+    <display-name>ui-libs</display-name>
+    <description>ui-libs</description>
+</web-app>

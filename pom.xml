@@ -70,12 +70,12 @@
                             <resourceBase>../ui-libs</resourceBase>
                         </resourceBases>
                         <!-- The path to the web.xml file -->
-                        <!-- <descriptor>WEB-INF/web.xml</descriptor> -->
+                        <descriptor>WEB-INF/web.xml</descriptor>
 
                         <!-- Defaults to / -->
                         <contextPath>${jetty.path}</contextPath>
 
-                        <!-- <defaultsDescriptor>WEB-INF/webdefault.xml</defaultsDescriptor> -->
+                        <defaultsDescriptor>WEB-INF/webdefault.xml</defaultsDescriptor>
                     </webApp>
                     <httpConnector>
                         <!-- 修改端口也可：mvn jetty:run -Djetty.port=8081 -->
