@@ -9,8 +9,8 @@
     
     <!-- DO NOT USE THIS FILE. it is compiled for fast http access -->
     <!-- if you’re looking for source, download or read documentation -->
-	<script type="text/javascript" src="../../../../../ui-libs/jquery/1.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="../../../../../ui-libs/jquery/plugins/easing/1.3/jquery.easing.js"></script>
+  <script type="text/javascript" src="../../../../../ui-libs/jquery/1.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../../ui-libs/jquery/plugins/easing/1.3/jquery.easing.js"></script>
     <script src="../../../../../ui-libs/jquery/plugins/quicksand/1.2.2/jquery.quicksand.js" type="text/javascript"></script>
     
   </head>
@@ -29,18 +29,18 @@
         <div class="demo">
         
           <form id="filter">
-        		<fieldset>
-        			<legend>Filter by type</legend>
-        			<label><input type="radio" name="type" value="all" checked="checked">Everything</label>
-        			<label><input type="radio" name="type" value="app">Applications</label>
-        			<label><input type="radio" name="type" value="util">Utilities</label>
-        		</fieldset>
-        		<fieldset>
-        			<legend>Sort by</legend>
-        			<label><input type="radio" name="sort" value="size" checked="checked">Size</label>
-        			<label><input type="radio" name="sort" value="name">Name</label>			
-        		</fieldset>
-        	</form>
+            <fieldset>
+              <legend>Filter by type</legend>
+              <label><input type="radio" name="type" value="all" checked="checked">Everything</label>
+              <label><input type="radio" name="type" value="app">Applications</label>
+              <label><input type="radio" name="type" value="util">Utilities</label>
+            </fieldset>
+            <fieldset>
+              <legend>Sort by</legend>
+              <label><input type="radio" name="sort" value="size" checked="checked">Size</label>
+              <label><input type="radio" name="sort" value="name">Name</label>      
+            </fieldset>
+          </form>
         
           <ul id="applications" class="image-grid">
             <li data-id="id-1" data-type="util">
@@ -115,71 +115,71 @@
         <script type="text/javascript">
           // Custom sorting plugin
           (function($) {
-          	$.fn.sorted = function(customOptions) {
-          		var options = {
-          			reversed: false,
-          			by: function(a) { return a.text(); }
-          		};
-          		$.extend(options, customOptions);
-          		$data = $(this);
-          		arr = $data.get();
-          		arr.sort(function(a, b) {
-          		   	var valA = options.by($(a));
-          		   	var valB = options.by($(b));
-          			if (options.reversed) {
-          				return (valA < valB) ? 1 : (valA > valB) ? -1 : 0;				
-          			} else {		
-          				return (valA < valB) ? -1 : (valA > valB) ? 1 : 0;	
-          			}
-          		});
-          		return $(arr);
-          	};
+            $.fn.sorted = function(customOptions) {
+              var options = {
+                reversed: false,
+                by: function(a) { return a.text(); }
+              };
+              $.extend(options, customOptions);
+              $data = $(this);
+              arr = $data.get();
+              arr.sort(function(a, b) {
+                   var valA = options.by($(a));
+                   var valB = options.by($(b));
+                if (options.reversed) {
+                  return (valA < valB) ? 1 : (valA > valB) ? -1 : 0;        
+                } else {    
+                  return (valA < valB) ? -1 : (valA > valB) ? 1 : 0;  
+                }
+              });
+              return $(arr);
+            };
           })(jQuery);
       
           // DOMContentLoaded
           $(function() {
           
             // bind radiobuttons in the form
-          	var $filterType = $('#filter input[name="type"]');
-          	var $filterSort = $('#filter input[name="sort"]');
-        	
-          	// get the first collection
-          	var $applications = $('#applications');
-        	
-          	// clone applications to get a second collection
-          	var $data = $applications.clone();
+            var $filterType = $('#filter input[name="type"]');
+            var $filterSort = $('#filter input[name="sort"]');
+          
+            // get the first collection
+            var $applications = $('#applications');
+          
+            // clone applications to get a second collection
+            var $data = $applications.clone();
 
             // attempt to call Quicksand on every form change
-          	$filterType.add($filterSort).change(function(e) {
-          		if ($($filterType+':checked').val() == 'all') {
-          			var $filteredData = $data.find('li');
-          		} else {
-          			var $filteredData = $data.find('li[data-type=' + $($filterType+":checked").val() + ']');
-          		}
+            $filterType.add($filterSort).change(function(e) {
+              if ($($filterType+':checked').val() == 'all') {
+                var $filteredData = $data.find('li');
+              } else {
+                var $filteredData = $data.find('li[data-type=' + $($filterType+":checked").val() + ']');
+              }
             
               // if sorted by size
-          		if ($('#filter input[name="sort"]:checked').val() == "size") {
-          			var $sortedData = $filteredData.sorted({
-          				by: function(v) {
-          					return parseFloat($(v).find('span[data-type=size]').text());
-          				}
-          			});
-          		} else {
-          		// if sorted by name
-          			var $sortedData = $filteredData.sorted({
-          				by: function(v) {
-          					return $(v).find('strong').text().toLowerCase();
-          				}
-          			});
-          		}   
-        		
-          		// finally, call quicksand
-          	  $applications.quicksand($sortedData, {
-          	    duration: 800,
-          	    easing: 'easeInOutQuad'
-          	  });
+              if ($('#filter input[name="sort"]:checked').val() == "size") {
+                var $sortedData = $filteredData.sorted({
+                  by: function(v) {
+                    return parseFloat($(v).find('span[data-type=size]').text());
+                  }
+                });
+              } else {
+              // if sorted by name
+                var $sortedData = $filteredData.sorted({
+                  by: function(v) {
+                    return $(v).find('strong').text().toLowerCase();
+                  }
+                });
+              }   
+            
+              // finally, call quicksand
+              $applications.quicksand($sortedData, {
+                duration: 800,
+                easing: 'easeInOutQuad'
+              });
 
-          	});
+            });
           
           });
         </script>
@@ -200,9 +200,9 @@
       var valA = options.by($(a));
       var valB = options.by($(b));
       if (options.reversed) {
-        return (valA &lt; valB) ? 1 : (valA &gt; valB) ? -1 : 0;				
-      } else {		
-        return (valA &lt; valB) ? -1 : (valA &gt; valB) ? 1 : 0;	
+        return (valA &lt; valB) ? 1 : (valA &gt; valB) ? -1 : 0;        
+      } else {    
+        return (valA &lt; valB) ? -1 : (valA &gt; valB) ? 1 : 0;  
       }
     });
     return $(arr);

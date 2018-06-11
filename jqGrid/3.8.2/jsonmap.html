@@ -22,30 +22,30 @@ Note the MySQL PHP code.
 <XMP>
 ...
 jQuery("#jsonmap").jqGrid({        
-   	url:'server.php?q=4',
-	datatype: "json",
-   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
-   	colModel:[
-   		{name:'id',index:'id', width:55},
-   		{name:'invdate',index:'invdate', width:90, jsonmap:"invdate"},
-   		{name:'name',index:'name asc, invdate', width:100},
-   		{name:'amount',index:'amount', width:80, align:"right"},
-   		{name:'tax',index:'tax', width:80, align:"right"},		
-   		{name:'total',index:'total', width:80,align:"right"},		
-   		{name:'note',index:'note', width:150, sortable:false}		
-   	],
-   	rowNum:10,
-   	rowList:[10,20,30],
-   	pager: '#pjmap',
-   	sortname: 'id',
+     url:'server.php?q=4',
+  datatype: "json",
+     colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+     colModel:[
+       {name:'id',index:'id', width:55},
+       {name:'invdate',index:'invdate', width:90, jsonmap:"invdate"},
+       {name:'name',index:'name asc, invdate', width:100},
+       {name:'amount',index:'amount', width:80, align:"right"},
+       {name:'tax',index:'tax', width:80, align:"right"},    
+       {name:'total',index:'total', width:80,align:"right"},    
+       {name:'note',index:'note', width:150, sortable:false}    
+     ],
+     rowNum:10,
+     rowList:[10,20,30],
+     pager: '#pjmap',
+     sortname: 'id',
     viewrecords: true,
     sortorder: "desc",
-	jsonReader: {
-		repeatitems : false,
-		id: "0"
-	},
-	caption: "JSON Mapping",
-	height: '100%'
+  jsonReader: {
+    repeatitems : false,
+    id: "0"
+  },
+  caption: "JSON Mapping",
+  height: '100%'
 });
 jQuery("#jsonmap").jqGrid('navGrid','#pjmap',{edit:false,add:false,del:false});
 
@@ -58,11 +58,11 @@ jQuery("#jsonmap").jqGrid('navGrid','#pjmap',{edit:false,add:false,del:false});
     $count = $row['count'];
     if( $count >0 ) {
         $total_pages = ceil($count/$limit);
-	} else {
-		$total_pages = 0;
-	}
+  } else {
+    $total_pages = 0;
+  }
     if ($page > $total_pages) $page=$total_pages;
-	$start = $limit*$page - $limit; // do not put $limit*($page - 1)
+  $start = $limit*$page - $limit; // do not put $limit*($page - 1)
     if ($start<0) $start = 0;
     $SQL = "SELECT a.id, a.invdate, b.name, a.amount,a.tax,a.total,a.note FROM invheader a, clients b WHERE a.client_id=b.client_id ORDER BY $sidx $sord LIMIT $start , $limit";
     $result = mysql_query( $SQL ) or die("Couldnt execute query.".mysql_error());
@@ -73,7 +73,7 @@ jQuery("#jsonmap").jqGrid('navGrid','#pjmap',{edit:false,add:false,del:false});
     while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
         $responce->rows[$i]=$row;
         $i++;
-	} 
+  } 
     echo $json->encode($responce); // coment if php 5     
     break;
 ...

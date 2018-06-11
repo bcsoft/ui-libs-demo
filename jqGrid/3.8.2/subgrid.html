@@ -19,33 +19,33 @@ This example demonstrates using a subgrid.<br>
 <XMP>
 ...
 jQuery("#list11").jqGrid({
-   	url:'server.php?q=1',
-	datatype: "xml",
-	height: 200,
-   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
-   	colModel:[
-   		{name:'id',index:'id', width:55},
-   		{name:'invdate',index:'invdate', width:90},
-   		{name:'name',index:'name', width:100},
-   		{name:'amount',index:'amount', width:80, align:"right"},
-   		{name:'tax',index:'tax', width:80, align:"right"},		
-   		{name:'total',index:'total', width:80,align:"right"},		
-   		{name:'note',index:'note', width:150, sortable:false}		
-   	],
-   	rowNum:10,
-   	rowList:[10,20,30],
-   	pager: '#pager11',
-   	sortname: 'id',
+     url:'server.php?q=1',
+  datatype: "xml",
+  height: 200,
+     colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+     colModel:[
+       {name:'id',index:'id', width:55},
+       {name:'invdate',index:'invdate', width:90},
+       {name:'name',index:'name', width:100},
+       {name:'amount',index:'amount', width:80, align:"right"},
+       {name:'tax',index:'tax', width:80, align:"right"},    
+       {name:'total',index:'total', width:80,align:"right"},    
+       {name:'note',index:'note', width:150, sortable:false}    
+     ],
+     rowNum:10,
+     rowList:[10,20,30],
+     pager: '#pager11',
+     sortname: 'id',
     viewrecords: true,
     sortorder: "desc",
-	multiselect: false,
-	subGrid : true,
-	subGridUrl: 'subgrid.php?q=2',
+  multiselect: false,
+  subGrid : true,
+  subGridUrl: 'subgrid.php?q=2',
     subGridModel: [{ name  : ['No','Item','Qty','Unit','Line Total'], 
                     width : [55,200,80,80,80] } 
     ],
     caption: "Subgrid Example"
-	
+  
 });
 jQuery("#list11").jqGrid('navGrid','#pager11',{add:false,edit:false,del:false});
 </XMP>
@@ -67,9 +67,9 @@ $result = mysql_query("SELECT COUNT(*) AS count FROM invheader a, clients b WHER
 $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 $start = $limit*$page - $limit; // do not put $limit*($page - 1)
@@ -90,17 +90,17 @@ echo "<total>".$total_pages."</total>";
 echo "<records>".$count."</records>";
 // be sure to put text data in CDATA
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	echo "<row id='". $row[id]."'>";			
-	echo "<cell>". $row[id]."</cell>";
-	echo "<cell>". $row[invdate]."</cell>";
-	echo "<cell><![CDATA[". $row[name]."]]></cell>";
-	echo "<cell>". $row[amount]."</cell>";
-	echo "<cell>". $row[tax]."</cell>";
-	echo "<cell>". $row[total]."</cell>";
-	echo "<cell><![CDATA[". $row[note]."]]></cell>";
-	echo "</row>";
+  echo "<row id='". $row[id]."'>";      
+  echo "<cell>". $row[id]."</cell>";
+  echo "<cell>". $row[invdate]."</cell>";
+  echo "<cell><![CDATA[". $row[name]."]]></cell>";
+  echo "<cell>". $row[amount]."</cell>";
+  echo "<cell>". $row[tax]."</cell>";
+  echo "<cell>". $row[total]."</cell>";
+  echo "<cell><![CDATA[". $row[note]."]]></cell>";
+  echo "</row>";
 }
-echo "</rows>";		
+echo "</rows>";    
 </XMP>
 <b>PHP with MySQL Subgrid</b>
 <XMP>
@@ -125,15 +125,15 @@ echo "<?xml version='1.0' encoding='utf-8'?$et\n";
 echo "<rows>";
 // be sure to put text data in CDATA
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	echo "<row>";			
-	echo "<cell>". $row[num]."</cell>";
-	echo "<cell><![CDATA[". $row[item]."]]></cell>";
-	echo "<cell>". $row[qty]."</cell>";
-	echo "<cell>". $row[unit]."</cell>";
-	echo "<cell>". number_format($row[qty]*$row[unit],2,'.',' ')."</cell>";
-	echo "</row>";
+  echo "<row>";      
+  echo "<cell>". $row[num]."</cell>";
+  echo "<cell><![CDATA[". $row[item]."]]></cell>";
+  echo "<cell>". $row[qty]."</cell>";
+  echo "<cell>". $row[unit]."</cell>";
+  echo "<cell>". number_format($row[qty]*$row[unit],2,'.',' ')."</cell>";
+  echo "</row>";
 }
-echo "</rows>";				
+echo "</rows>";        
 
 </XMP>
 </div>

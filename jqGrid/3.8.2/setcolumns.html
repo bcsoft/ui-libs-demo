@@ -1,7 +1,7 @@
 <div style="font-size:12px;">
     This module is contributed from Piotr Roznicki<br>
     The module allow to show and hide columns via user interface<br>
-	Click on Hide/Show Columns link.
+  Click on Hide/Show Columns link.
 </div>
 <br/>
 <a href="#" id="vcol">Hide/Show Columns</a>
@@ -24,29 +24,29 @@
 <XMP>
 ...
 jQuery("#setcols").jqGrid({
-   	url:'server.php?q=2',
-	datatype: "json",
-   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
-   	colModel:[
-   		{name:'id',index:'id', width:55,hidedlg:true},
-   		{name:'invdate',index:'invdate', width:90,editable:true},
-   		{name:'name',index:'name asc, invdate', width:100},
-   		{name:'amount',index:'amount', width:80, align:"right",editable:true,editrules:{number:true}},
-   		{name:'tax',index:'tax', width:80, align:"right",editable:true,editrules:{number:true}},		
-   		{name:'total',index:'total', width:80,align:"right"},		
-   		{name:'note',index:'note', width:150, sortable:false}		
-   	],
-   	rowNum:10,
-   	rowList:[10,20,30],
-   	pager: '#psetcols',
-   	sortname: 'id',
+     url:'server.php?q=2',
+  datatype: "json",
+     colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+     colModel:[
+       {name:'id',index:'id', width:55,hidedlg:true},
+       {name:'invdate',index:'invdate', width:90,editable:true},
+       {name:'name',index:'name asc, invdate', width:100},
+       {name:'amount',index:'amount', width:80, align:"right",editable:true,editrules:{number:true}},
+       {name:'tax',index:'tax', width:80, align:"right",editable:true,editrules:{number:true}},    
+       {name:'total',index:'total', width:80,align:"right"},    
+       {name:'note',index:'note', width:150, sortable:false}    
+     ],
+     rowNum:10,
+     rowList:[10,20,30],
+     pager: '#psetcols',
+     sortname: 'id',
     viewrecords: true,
     sortorder: "desc"
 });
 jQuery("#setcols").jqGrid('navGrid','#pgwidth',{edit:false,add:false,del:false});
 
 jQuery("#vcol").click(function (){
-	jQuery("#setcols").jqGrid('setColumns');
+  jQuery("#setcols").jqGrid('setColumns');
 });
 </XMP>
 <b>PHP with MySQL</b>
@@ -67,9 +67,9 @@ $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 $start = $limit*$page - $limit; // do not put $limit*($page - 1)

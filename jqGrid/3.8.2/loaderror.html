@@ -28,27 +28,27 @@
 <XMP>
 ...
 jQuery("#loaderr").jqGrid({        
-   	url:'server_bad.php?q=1',
-	datatype: "xml",
-   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
-   	colModel:[
-   		{name:'id',index:'id', width:55},
-   		{name:'invdate',index:'invdate', width:90},
-   		{name:'name',index:'name', width:100},
-   		{name:'amount',index:'amount', width:80, align:"right"},
-   		{name:'tax',index:'tax', width:80, align:"right"},		
-   		{name:'total',index:'total', width:80,align:"right"},		
-   		{name:'note',index:'note', width:150, sortable:false}		
-   	],
-   	rowNum:10,
-   	rowList:[10,20,30],
-   	pager: '#ploaderr',
-   	sortname: 'id',
+     url:'server_bad.php?q=1',
+  datatype: "xml",
+     colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+     colModel:[
+       {name:'id',index:'id', width:55},
+       {name:'invdate',index:'invdate', width:90},
+       {name:'name',index:'name', width:100},
+       {name:'amount',index:'amount', width:80, align:"right"},
+       {name:'tax',index:'tax', width:80, align:"right"},    
+       {name:'total',index:'total', width:80,align:"right"},    
+       {name:'note',index:'note', width:150, sortable:false}    
+     ],
+     rowNum:10,
+     rowList:[10,20,30],
+     pager: '#ploaderr',
+     sortname: 'id',
     viewrecords: true,
     sortorder: "desc",
     caption:"Server Errors",
     loadError : function(xhr,st,err) {
-    	jQuery("#rsperror").html("Type: "+st+"; Response: "+ xhr.status + " "+xhr.statusText);
+      jQuery("#rsperror").html("Type: "+st+"; Response: "+ xhr.status + " "+xhr.statusText);
     }
 });
 jQuery("#loaderr").jqGrid('navGrid','#pmethod',{edit:false,add:false,del:false});
@@ -71,9 +71,9 @@ $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 $start = $limit*$page - $limit; // do not put $limit*($page - 1)
@@ -93,17 +93,17 @@ echo "<total>".$total_pages."</total>";
 echo "<records>".$count."</records>";
 // be sure to put text data in CDATA
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	echo "<row id='". $row[id]."'>";			
-	echo "<cell>". $row[id]."</cell>";
-	echo "<cell>". $row[invdate]."</cell>";
-	echo "<cell><![CDATA[". $row[name]."]]></cell>";
-	echo "<cell>". $row[amount]."</cell>";
-	echo "<cell>". $row[tax]."</cell>";
-	echo "<cell>". $row[total]."</cell>";
-	echo "<cell><![CDATA[". $row[note]."]]></cell>";
-	echo "</row>";
+  echo "<row id='". $row[id]."'>";      
+  echo "<cell>". $row[id]."</cell>";
+  echo "<cell>". $row[invdate]."</cell>";
+  echo "<cell><![CDATA[". $row[name]."]]></cell>";
+  echo "<cell>". $row[amount]."</cell>";
+  echo "<cell>". $row[tax]."</cell>";
+  echo "<cell>". $row[total]."</cell>";
+  echo "<cell><![CDATA[". $row[note]."]]></cell>";
+  echo "</row>";
 }
-echo "</rows>";		
+echo "</rows>";    
 ...
 </XMP>
 </div>
