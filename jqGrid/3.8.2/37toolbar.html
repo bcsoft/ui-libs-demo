@@ -19,29 +19,29 @@ Toolbar search on local data works too on local data.<br>
 <XMP>
 ...
 jQuery("#toolbar").jqGrid({
-   	url:'localset.php',
-	datatype: "json",
-	height: 255,
-	width: 600,
-   	colNames:['Index','Name', 'Code'],
-   	colModel:[
-   		{name:'item_id',index:'item_id', width:65, sorttype:'int'},
-   		{name:'item',index:'item', width:150},
-   		{name:'item_cd',index:'item_cd', width:100}
-   	],
-   	rowNum:50,
-	rowTotal: 2000,
-	rowList : [20,30,50],
-	loadonce:true,
-   	mtype: "GET",
-	rownumbers: true,
-	rownumWidth: 40,
-	gridview: true,
-   	pager: '#ptoolbar',
-   	sortname: 'item_id',
+     url:'localset.php',
+  datatype: "json",
+  height: 255,
+  width: 600,
+     colNames:['Index','Name', 'Code'],
+     colModel:[
+       {name:'item_id',index:'item_id', width:65, sorttype:'int'},
+       {name:'item',index:'item', width:150},
+       {name:'item_cd',index:'item_cd', width:100}
+     ],
+     rowNum:50,
+  rowTotal: 2000,
+  rowList : [20,30,50],
+  loadonce:true,
+     mtype: "GET",
+  rownumbers: true,
+  rownumWidth: 40,
+  gridview: true,
+     pager: '#ptoolbar',
+     sortname: 'item_id',
     viewrecords: true,
     sortorder: "asc",
-	caption: "Toolbar Searching"	
+  caption: "Toolbar Searching"  
 });
 
 jQuery("#toolbar").jqGrid('navGrid','#ptoolbar',{del:false,add:false,edit:false,search:false});
@@ -59,7 +59,7 @@ if(!$sidx) $sidx =1;
 
 $totalrows = isset($_REQUEST['totalrows']) ? $_REQUEST['totalrows']: false;
 if($totalrows) {
-	$limit = $totalrows;
+  $limit = $totalrows;
 }
 
 
@@ -74,9 +74,9 @@ $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 if ($limit<0) $limit = 0;
@@ -89,7 +89,7 @@ $responce->total = $total_pages;
 $responce->records = $count;
 $i=0;
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	$responce->rows[$i]['id']=$row[item_id];
+  $responce->rows[$i]['id']=$row[item_id];
     $responce->rows[$i]['cell']=array($row[item_id],$row[item],$row[item_cd]);
     $i++;
 } 

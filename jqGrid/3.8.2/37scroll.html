@@ -19,30 +19,30 @@ We can make a virtual scroll to a relative big local data - i.e scroll option se
 <XMP>
 ...
 jQuery("#scroll37").jqGrid({
-   	url:'localset.php',
-	datatype: "json",
-	height: 255,
-	width: 600,
-   	colNames:['Index','Name', 'Code'],
-   	colModel:[
-   		{name:'item_id',index:'item_id', width:65, sorttype:'int'},
-   		{name:'item',index:'item', width:150},
-   		{name:'item_cd',index:'item_cd', width:100}
-   	],
-   	rowNum:50,
-	rowTotal: 2000,
-	rowList : [20,30,50],
-	scroll:1,
-	loadonce:true,
-   	mtype: "GET",
-	rownumbers: true,
-	rownumWidth: 40,
-	gridview: true,
-   	pager: '#pscroll37',
-   	sortname: 'item_id',
+     url:'localset.php',
+  datatype: "json",
+  height: 255,
+  width: 600,
+     colNames:['Index','Name', 'Code'],
+     colModel:[
+       {name:'item_id',index:'item_id', width:65, sorttype:'int'},
+       {name:'item',index:'item', width:150},
+       {name:'item_cd',index:'item_cd', width:100}
+     ],
+     rowNum:50,
+  rowTotal: 2000,
+  rowList : [20,30,50],
+  scroll:1,
+  loadonce:true,
+     mtype: "GET",
+  rownumbers: true,
+  rownumWidth: 40,
+  gridview: true,
+     pager: '#pscroll37',
+     sortname: 'item_id',
     viewrecords: true,
     sortorder: "asc",
-	caption: "Virtual scrolling on local data"
+  caption: "Virtual scrolling on local data"
 });
 
 jQuery("#scroll37").jqGrid('navGrid','#pscroll37',{del:false,add:false,edit:false},{},{},{},{multipleSearch:true});
@@ -59,7 +59,7 @@ if(!$sidx) $sidx =1;
 
 $totalrows = isset($_REQUEST['totalrows']) ? $_REQUEST['totalrows']: false;
 if($totalrows) {
-	$limit = $totalrows;
+  $limit = $totalrows;
 }
 
 
@@ -74,9 +74,9 @@ $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 if ($limit<0) $limit = 0;
@@ -89,7 +89,7 @@ $responce->total = $total_pages;
 $responce->records = $count;
 $i=0;
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	$responce->rows[$i]['id']=$row[item_id];
+  $responce->rows[$i]['id']=$row[item_id];
     $responce->rows[$i]['cell']=array($row[item_id],$row[item],$row[item_cd]);
     $i++;
 } 

@@ -23,31 +23,31 @@ treeGrid, subGrid and afterInsertRow (event). Enjoy the speed!
 <b>Java Scrpt code</b>
 <XMP>
 jQuery("#speed").jqGrid({        
-   	url:'bigset.php',
-	datatype: "json",
-	height: 255,
-	width: 600,
-   	colNames:['Index','Name', 'Code'],
-   	colModel:[
-   		{name:'item_id',index:'item_id', width:65},
-   		{name:'item',index:'item', width:150},
-   		{name:'item_cd',index:'item_cd', width:100}
-   	],
-   	rowNum:200,
-   	rowList:[100,200,300],
-   	mtype: "POST",
-	rownumbers: true,
-	rownumWidth: 40,
-	gridview: true,
-   	pager: '#speedp',
-   	sortname: 'item_id',
+     url:'bigset.php',
+  datatype: "json",
+  height: 255,
+  width: 600,
+     colNames:['Index','Name', 'Code'],
+     colModel:[
+       {name:'item_id',index:'item_id', width:65},
+       {name:'item',index:'item', width:150},
+       {name:'item_cd',index:'item_cd', width:100}
+     ],
+     rowNum:200,
+     rowList:[100,200,300],
+     mtype: "POST",
+  rownumbers: true,
+  rownumWidth: 40,
+  gridview: true,
+     pager: '#speedp',
+     sortname: 'item_id',
     viewrecords: true,
     sortorder: "asc",
-	caption: "Using gridview mode",
-	gridComplete : function() {
-		var tm = jQuery("#speed").jqGrid('getGridParam','totaltime');
-		$("#speed_div").html("Render time: "+ tm+" ms ");
-	}
+  caption: "Using gridview mode",
+  gridComplete : function() {
+    var tm = jQuery("#speed").jqGrid('getGridParam','totaltime');
+    $("#speed_div").html("Render time: "+ tm+" ms ");
+  }
 });
 </XMP>
 <b>PHP with MySQL (bigset.php)</b>
@@ -69,19 +69,19 @@ if(!$sidx) $sidx =1;
 
 
 if(isset($_GET["nm_mask"]))
-	$nm_mask = $_GET['nm_mask'];
+  $nm_mask = $_GET['nm_mask'];
 else
-	$nm_mask = "";
+  $nm_mask = "";
 if(isset($_GET["cd_mask"]))
-	$cd_mask = $_GET['cd_mask'];
+  $cd_mask = $_GET['cd_mask'];
 else
-	$cd_mask = "";
+  $cd_mask = "";
 //construct where clause
 $where = "WHERE 1=1";
 if($nm_mask!='')
-	$where.= " AND item LIKE '$nm_mask%'";
+  $where.= " AND item LIKE '$nm_mask%'";
 if($cd_mask!='')
-	$where.= " AND item_cd LIKE '$cd_mask%'";
+  $where.= " AND item_cd LIKE '$cd_mask%'";
 
 // connect to the database
 $db = mysql_pconnect($dbhost, $dbuser, $dbpassword)
@@ -94,9 +94,9 @@ $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 if ($limit<0) $limit = 0;
@@ -109,7 +109,7 @@ $responce->total = $total_pages;
 $responce->records = $count;
 $i=0;
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	$responce->rows[$i]['id']=$row[item_id];
+  $responce->rows[$i]['id']=$row[item_id];
     $responce->rows[$i]['cell']=array($row[item_id],$row[item],$row[item_cd]);
     $i++;
 } 

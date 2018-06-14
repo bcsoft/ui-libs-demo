@@ -20,23 +20,23 @@ and to specify which column is expandable. Of course the data from the server sh
 <XMP>
 ...
 jQuery("#treegrid").jqGrid({
-   	url: 'server.php?q=tree',
-	treedatatype: "xml",
-	mtype: "POST",
-   	colNames:["id","Account","Acc Num", "Debit", "Credit","Balance"],
-   	colModel:[
-   		{name:'id',index:'id', width:1,hidden:true,key:true},
-   		{name:'name',index:'name', width:180},
-   		{name:'num',index:'acc_num', width:80, align:"center"},
-   		{name:'debit',index:'debit', width:80, align:"right"},		
-   		{name:'credit',index:'credit', width:80,align:"right"},		
-   		{name:'balance',index:'balance', width:80,align:"right"}		
-   	],
-	height:'auto',
-	pager : "#ptreegrid",
+     url: 'server.php?q=tree',
+  treedatatype: "xml",
+  mtype: "POST",
+     colNames:["id","Account","Acc Num", "Debit", "Credit","Balance"],
+     colModel:[
+       {name:'id',index:'id', width:1,hidden:true,key:true},
+       {name:'name',index:'name', width:180},
+       {name:'num',index:'acc_num', width:80, align:"center"},
+       {name:'debit',index:'debit', width:80, align:"right"},    
+       {name:'credit',index:'credit', width:80,align:"right"},    
+       {name:'balance',index:'balance', width:80,align:"right"}    
+     ],
+  height:'auto',
+  pager : "#ptreegrid",
     treeGrid: true,
-	ExpandColumn : 'name',
-	caption: "Treegrid example"
+  ExpandColumn : 'name',
+  caption: "Treegrid example"
 });
 </XMP>
 <b> PHP code </b>
@@ -45,15 +45,15 @@ $node = (integer)$_REQUEST["nodeid"];
 // detect if here we post the data from allready loaded tree
 // we can make here other checks
 if( $node >0) {
-	$n_lft = (integer)$_REQUEST["n_left"];
-	$n_rgt = (integer)$_REQUEST["n_right"];
-	$n_lvl = (integer)$_REQUEST["n_level"];
+  $n_lft = (integer)$_REQUEST["n_left"];
+  $n_rgt = (integer)$_REQUEST["n_right"];
+  $n_lvl = (integer)$_REQUEST["n_level"];
 
-	$n_lvl = $n_lvl+1;
-   	$SQL = "SELECT account_id, name, acc_num, debit, credit, balance, level, lft, rgt FROM accounts WHERE lft > ".$n_lft." AND rgt < ".$n_rgt." AND level = ".$n_lvl." ORDER BY lft";
+  $n_lvl = $n_lvl+1;
+     $SQL = "SELECT account_id, name, acc_num, debit, credit, balance, level, lft, rgt FROM accounts WHERE lft > ".$n_lft." AND rgt < ".$n_rgt." AND level = ".$n_lvl." ORDER BY lft";
 } else { 
-	// initial grid
-   	$SQL = "SELECT account_id, name, acc_num, debit, credit, balance, level, lft, rgt FROM accounts WHERE level=0 ORDER BY lft";
+  // initial grid
+     $SQL = "SELECT account_id, name, acc_num, debit, credit, balance, level, lft, rgt FROM accounts WHERE level=0 ORDER BY lft";
 }
 $result = mysql_query( $SQL ) or die("Couldn t execute query.".mysql_error());
 if ( stristr($_SERVER["HTTP_ACCEPT"],"application/xhtml+xml") ) {
@@ -68,21 +68,21 @@ echo "<total>1</total>";
 echo "<records>1</records>";
 // be sure to put text data in CDATA
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	echo "<row>";			
-	echo "<cell>". $row[account_id]."</cell>";
-	echo "<cell>". $row[name]."</cell>";
-	echo "<cell>". $row[acc_num]."</cell>";
-	echo "<cell>". $row[debit]."</cell>";
-	echo "<cell>". $row[credit]."</cell>";
-	echo "<cell>". $row[balance]."</cell>";
-	echo "<cell>". $row[level]."</cell>";
-	echo "<cell>". $row[lft]."</cell>";
-	echo "<cell>". $row[rgt]."</cell>";
-	if($row[rgt] == $row[lft]+1) $leaf = 'true';else $leaf='false';
-	echo "<cell>".$leaf."</cell>";
-	echo "<cell>false</cell>";
-	echo "</row>";
+  echo "<row>";      
+  echo "<cell>". $row[account_id]."</cell>";
+  echo "<cell>". $row[name]."</cell>";
+  echo "<cell>". $row[acc_num]."</cell>";
+  echo "<cell>". $row[debit]."</cell>";
+  echo "<cell>". $row[credit]."</cell>";
+  echo "<cell>". $row[balance]."</cell>";
+  echo "<cell>". $row[level]."</cell>";
+  echo "<cell>". $row[lft]."</cell>";
+  echo "<cell>". $row[rgt]."</cell>";
+  if($row[rgt] == $row[lft]+1) $leaf = 'true';else $leaf='false';
+  echo "<cell>".$leaf."</cell>";
+  echo "<cell>false</cell>";
+  echo "</row>";
 }
-echo "</rows>";		
+echo "</rows>";    
 </XMP>   
 </div>

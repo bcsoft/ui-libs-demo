@@ -16,36 +16,36 @@
 <b>Java Scrpt code</b>
 <XMP>
 jQuery("#48remote2").jqGrid({
-   	url:'server.php?q=2',
-	datatype: "json",
-   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
-   	colModel:[
-   		{name:'id',index:'id', width:55, editable:true, sorttype:'int',summaryType:'count', summaryTpl : '({0}) total'},
-   		{name:'invdate',index:'invdate', width:90, sorttype:'date', formatter:'date', datefmt:'d/m/Y'},
-   		{name:'name',index:'name', width:100},
-   		{name:'amount',index:'amount', width:80, align:"right", sorttype:'number',formatter:'number',summaryType:'sum'},
-   		{name:'tax',index:'tax', width:80, align:"right",sorttype:'number',formatter:'number',summaryType:'sum'},		
-   		{name:'total',index:'total', width:80,align:"right",sorttype:'number',formatter:'number', summaryType:'sum'},
-   		{name:'note',index:'note', width:150, sortable:false,editable:true}		
-   	],
-   	rowNum:10,
-   	rowList:[10,20,30],
-   	height: 'auto',
-   	pager: '#p48remote2',
-   	sortname: 'invdate',
+     url:'server.php?q=2',
+  datatype: "json",
+     colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+     colModel:[
+       {name:'id',index:'id', width:55, editable:true, sorttype:'int',summaryType:'count', summaryTpl : '({0}) total'},
+       {name:'invdate',index:'invdate', width:90, sorttype:'date', formatter:'date', datefmt:'d/m/Y'},
+       {name:'name',index:'name', width:100},
+       {name:'amount',index:'amount', width:80, align:"right", sorttype:'number',formatter:'number',summaryType:'sum'},
+       {name:'tax',index:'tax', width:80, align:"right",sorttype:'number',formatter:'number',summaryType:'sum'},    
+       {name:'total',index:'total', width:80,align:"right",sorttype:'number',formatter:'number', summaryType:'sum'},
+       {name:'note',index:'note', width:150, sortable:false,editable:true}    
+     ],
+     rowNum:10,
+     rowList:[10,20,30],
+     height: 'auto',
+     pager: '#p48remote2',
+     sortname: 'invdate',
     viewrecords: true,
     sortorder: "desc",
     caption:"Grouping with remote data",
     grouping: true,
-   	groupingView : {
-   		groupField : ['name'],
-   		groupColumnShow : [true],
-   		groupText : ['<b>{0}</b>'],
-   		groupCollapse : false,
-		groupOrder: ['asc'],
-		groupSummary : [true],
-		groupDataSorted : true
-   	},
+     groupingView : {
+       groupField : ['name'],
+       groupColumnShow : [true],
+       groupText : ['<b>{0}</b>'],
+       groupCollapse : false,
+    groupOrder: ['asc'],
+    groupSummary : [true],
+    groupDataSorted : true
+     },
     footerrow: true,
     userDataOnFooter: true
 });
@@ -66,9 +66,9 @@ $result = mysql_query("SELECT COUNT(*) AS count FROM invheader a, clients b WHER
 $row = mysql_fetch_array($result,MYSQL_ASSOC);
 $count = $row['count'];
 if( $count >0 ) {
-	$total_pages = ceil($count/$limit);
+  $total_pages = ceil($count/$limit);
 } else {
-	$total_pages = 0;
+  $total_pages = 0;
 }
 if ($page > $total_pages) $page=$total_pages;
 $start = $limit*$page - $limit; // do not put $limit*($page - 1)
@@ -80,12 +80,12 @@ $responce->total = $total_pages;
 $responce->records = $count;
 $i=0; $amttot=0; $taxtot=0; $total=0;
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
-	$amttot += $row[amount];
-	$taxtot += $row[tax];
-	$total += $row[total];
-	$responce->rows[$i]['id']=$row[id];
-	$responce->rows[$i]['cell']=array($row[id],$row[invdate],$row[name],$row[amount],$row[tax],$row[total],$row[note]);
-	$i++;
+  $amttot += $row[amount];
+  $taxtot += $row[tax];
+  $total += $row[total];
+  $responce->rows[$i]['id']=$row[id];
+  $responce->rows[$i]['cell']=array($row[id],$row[invdate],$row[name],$row[amount],$row[tax],$row[total],$row[note]);
+  $i++;
 }
 $responce->userdata['amount'] = $amttot;
 $responce->userdata['tax'] = $taxtot;
